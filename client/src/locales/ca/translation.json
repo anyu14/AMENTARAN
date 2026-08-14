@@ -1,0 +1,77 @@
+{
+  "nav": {
+    "inicio": "Inici",
+    "apoyo": "Suport",
+    "nosotros": "Nosaltres",
+    "login": "Iniciar sessió",
+    "registro": "Registra't",
+    "logout": "Tancar sessió"
+  },
+  "hero": {
+    "bienvenida": "BENVINGUT A AMENTARAN ♡",
+    "titulo_pre": "Un espai per",
+    "titulo_sentir": "sentir-te",
+    "titulo_resaltado": "escoltat",
+    "descripcion_linea1": "Un lloc on pots parlar, connectar",
+    "descripcion_linea2": "i sentir que no estàs sol.",
+    "boton_hablar": "💬 Necessito parlar",
+    "boton_escuchar": "♡ Vull escoltar"
+  },
+  "apoyo": {
+    "titulo": "Com et podem acompanyar?",
+    "descripcion": "Tria l'opció que millor s'adapti al que necessites en aquest moment.",
+    "tarjeta_hablar": {
+      "titulo": "💬 Necessito parlar",
+      "texto": "Troba un espai segur on puguis expressar com et sents.",
+      "boton": "Cercar suport"
+    },
+    "tarjeta_escuchar": {
+      "titulo": "🤝 Vull escoltar",
+      "texto": "Ofereix el teu temps per escoltar i acompanyar algú que ho necessiti.",
+      "boton": "Vull ajudar"
+    },
+    "tarjeta_historias": {
+      "titulo": "📖 Històries",
+      "texto": "Llegeix experiències d'altres persones o comparteix la teva història de forma anònima.",
+      "boton": "Veure històries"
+    },
+    "tarjeta_ia": {
+      "titulo": "✨ Amentaran IA",
+      "texto": "Parla amb la nostra intel·ligència artificial quan necessitis expressar-te o orientar-te.",
+      "boton": "Parlar amb la IA"
+    }
+  },
+  "nosotros": {
+    "titulo": "Nosaltres",
+    "texto": "Contingut properament."
+  },
+  "auth": {
+    "email": "Correu electrònic",
+    "password": "Contrasenya",
+    "rol_pregunta": "Què et porta per aquí?",
+    "rol_busca_apoyo": "💬 Necessito parlar",
+    "rol_voluntario": "🤝 Vull escoltar",
+    "registro_titulo": "Crear compte",
+    "registro_boton": "Registrar-me",
+    "registro_exito": "Compte creat correctament. Ara ja pots iniciar sessió.",
+    "registro_enlace_login": "Ja tens compte? Inicia sessió",
+    "login_titulo": "Iniciar sessió",
+    "login_boton": "Entrar",
+    "login_enlace_registro": "No tens compte? Registra't",
+    "cargando": "Un moment..."
+  },
+  "historias": {
+    "titulo": "Històries",
+    "cargando": "Carregant històries...",
+    "error_cargar": "No s'han pogut carregar les històries. Torna-ho a provar més tard.",
+    "vacio": "Encara no hi ha històries publicades. Sigues la primera persona a compartir la teva.",
+    "placeholder_formulario": "Comparteix el que estàs vivint, de forma anònima...",
+    "boton_publicar": "Publicar",
+    "publicando": "Publicant...",
+    "error_publicar": "No s'ha pogut publicar la història. Torna-ho a provar.",
+    "inicia_sesion_pre": "Per compartir la teva història,",
+    "inicia_sesion_enlace": "inicia sessió",
+    "inicia_sesion_o": "o",
+    "registrate_enlace": "registra't"
+  }
+}
