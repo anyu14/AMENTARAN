@@ -21,5 +21,9 @@ class Usuario(db.Model):
     idioma_preferido = db.Column(db.String(2), nullable=False, default="es")
     fecha_registro = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
+    # Solo tiene sentido para usuarios con rol "voluntario": si está
+    # libre para que el sistema lo conecte con alguien que pidió hablar.
+    disponible = db.Column(db.Boolean, nullable=False, default=False)
+
     def __repr__(self):
         return f"<Usuario {self.email}>"
