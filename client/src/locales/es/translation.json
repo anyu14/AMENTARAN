@@ -1,0 +1,77 @@
+{
+  "nav": {
+    "inicio": "Inicio",
+    "apoyo": "Apoyo",
+    "nosotros": "Nosotros",
+    "login": "Iniciar sesión",
+    "registro": "Registrarse",
+    "logout": "Cerrar sesión"
+  },
+  "hero": {
+    "bienvenida": "BIENVENIDO A AMENTARAN ♡",
+    "titulo_pre": "Un espacio para",
+    "titulo_sentir": "sentirte",
+    "titulo_resaltado": "escuchado",
+    "descripcion_linea1": "Un lugar donde puedes hablar, conectar",
+    "descripcion_linea2": "y sentir que no estás solo.",
+    "boton_hablar": "💬 Necesito hablar",
+    "boton_escuchar": "♡ Quiero escuchar"
+  },
+  "apoyo": {
+    "titulo": "¿Cómo podemos acompañarte?",
+    "descripcion": "Elige la opción que mejor se adapte a lo que necesitas en este momento.",
+    "tarjeta_hablar": {
+      "titulo": "💬 Necesito hablar",
+      "texto": "Encuentra un espacio seguro donde puedas expresar cómo te sientes.",
+      "boton": "Buscar apoyo"
+    },
+    "tarjeta_escuchar": {
+      "titulo": "🤝 Quiero escuchar",
+      "texto": "Ofrece tu tiempo para escuchar y acompañar a alguien que lo necesite.",
+      "boton": "Quiero ayudar"
+    },
+    "tarjeta_historias": {
+      "titulo": "📖 Historias",
+      "texto": "Lee experiencias de otras personas o comparte tu historia de forma anónima.",
+      "boton": "Ver historias"
+    },
+    "tarjeta_ia": {
+      "titulo": "✨ Amentaran IA",
+      "texto": "Habla con nuestra inteligencia artificial cuando necesites expresarte u orientarte.",
+      "boton": "Hablar con IA"
+    }
+  },
+  "nosotros": {
+    "titulo": "Nosotros",
+    "texto": "Contenido próximamente."
+  },
+  "auth": {
+    "email": "Email",
+    "password": "Contraseña",
+    "rol_pregunta": "¿Qué te trae por aquí?",
+    "rol_busca_apoyo": "💬 Necesito hablar",
+    "rol_voluntario": "🤝 Quiero escuchar",
+    "registro_titulo": "Crear cuenta",
+    "registro_boton": "Registrarme",
+    "registro_exito": "Cuenta creada correctamente. Ahora puedes iniciar sesión.",
+    "registro_enlace_login": "¿Ya tienes cuenta? Inicia sesión",
+    "login_titulo": "Iniciar sesión",
+    "login_boton": "Entrar",
+    "login_enlace_registro": "¿No tienes cuenta? Regístrate",
+    "cargando": "Un momento..."
+  },
+  "historias": {
+    "titulo": "Historias",
+    "cargando": "Cargando historias...",
+    "error_cargar": "No se pudieron cargar las historias. Intenta de nuevo más tarde.",
+    "vacio": "Aún no hay historias publicadas. Sé la primera persona en compartir la tuya.",
+    "placeholder_formulario": "Comparte lo que estás viviendo, de forma anónima...",
+    "boton_publicar": "Publicar",
+    "publicando": "Publicando...",
+    "error_publicar": "No se pudo publicar la historia. Intenta de nuevo.",
+    "inicia_sesion_pre": "Para compartir tu historia,",
+    "inicia_sesion_enlace": "inicia sesión",
+    "inicia_sesion_o": "o",
+    "registrate_enlace": "regístrate"
+  }
+}
