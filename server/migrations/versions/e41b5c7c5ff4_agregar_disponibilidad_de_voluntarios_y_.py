@@ -30,7 +30,7 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
     with op.batch_alter_table('usuarios', schema=None) as batch_op:
-        batch_op.add_column(sa.Column('disponible', sa.Boolean(), nullable=False))
+        batch_op.add_column(sa.Column('disponible', sa.Boolean(), nullable=False, server_default=sa.false()))
 
     # ### end Alembic commands ###
 

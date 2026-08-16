@@ -24,6 +24,9 @@ def cambiar_disponibilidad():
     usuario_id = int(get_jwt_identity())
     usuario = Usuario.query.get(usuario_id)
 
+    if usuario is None:
+        return jsonify(error="Usuario no válido."), 401
+
     if usuario.rol != "voluntario":
         return jsonify(error="Solo los voluntarios pueden marcar disponibilidad."), 403
 
@@ -45,6 +48,9 @@ def conectar():
     usuario_id = int(get_jwt_identity())
     usuario = Usuario.query.get(usuario_id)
 
+    if usuario is None:
+        return jsonify(error="Usuario no válido."), 401
+
     if usuario.rol != "busca_apoyo":
         return jsonify(error="Solo quien busca apoyo puede iniciar una conexión."), 403
 
@@ -53,7 +59,15 @@ def conectar():
     if existente:
         return jsonify(existente.to_dict()), 200
 
-    voluntario = Usuario.query.filter_by(rol="voluntario", disponible=True).first()
+    # .with_for_update() bloquea la fila elegida hasta el commit: si dos
+    # personas piden conectarse casi al mismo tiempo, la segunda espera
+    # a que la primera termine y, al reintentar, ya no encuentra a este
+    # voluntario disponible — evita que ambas lo reserven a la vez.
+    voluntario = (
+        Usuario.query.filter_by(rol="voluntario", disponible=True)
+        .with_for_update()
+        .first()
+    )
     if voluntario is None:
         return jsonify(error="No hay voluntarios disponibles en este momento."), 409
 
