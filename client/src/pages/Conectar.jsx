@@ -58,7 +58,14 @@ function Conectar() {
       const nuevaSesion = await apiFetch('/api/matching/conectar', { method: 'POST' })
       setSesion(nuevaSesion)
     } catch (err) {
-      setError(err.message || t('conectar.error_generico'))
+      // 409 = "no hay voluntarios disponibles": usamos nuestro propio
+      // texto traducido en vez del mensaje del backend, que siempre
+      // viene en español.
+      if (err.status === 409) {
+        setError(t('conectar.busca_sin_voluntarios'))
+      } else {
+        setError(err.message || t('conectar.error_generico'))
+      }
     } finally {
       setProcesando(false)
     }
@@ -70,6 +77,12 @@ function Conectar() {
     try {
       await apiFetch(`/api/matching/${sesion.id}/finalizar`, { method: 'POST' })
       setSesion(null)
+      // El backend nunca reactiva la disponibilidad automáticamente al
+      // finalizar, así que reflejamos eso mismo acá para no mostrar un
+      // estado "disponible" que ya no es cierto.
+      if (usuario.rol === 'voluntario') {
+        setDisponible(false)
+      }
     } catch (err) {
       setError(err.message || t('conectar.error_generico'))
     } finally {

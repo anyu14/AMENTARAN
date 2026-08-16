@@ -29,5 +29,8 @@ class Historia(db.Model):
             "id": self.id,
             "contenido": self.contenido,
             "idioma": self.idioma,
-            "fecha_creacion": self.fecha_creacion.isoformat(),
+            # "Z" al final indica explícitamente que es UTC — sin esto,
+            # el navegador asume que la hora ya está en su huso horario
+            # local y la muestra corrida (mismo ajuste que en Sesion).
+            "fecha_creacion": self.fecha_creacion.isoformat() + "Z",
         }

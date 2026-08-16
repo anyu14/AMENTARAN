@@ -30,7 +30,12 @@ export async function apiFetch(path, { method = "GET", body } = {}) {
 
   if (!respuesta.ok) {
     // El backend siempre manda { error: "mensaje" } cuando algo falla.
-    throw new Error(datos.error || "Ha ocurrido un error inesperado.")
+    // Se adjunta el código de estado HTTP al error para que el código
+    // que llama pueda distinguir casos específicos (por ejemplo, para
+    // mostrar un mensaje traducido en vez del texto fijo del backend).
+    const error = new Error(datos.error || "Ha ocurrido un error inesperado.")
+    error.status = respuesta.status
+    throw error
   }
 
   return datos

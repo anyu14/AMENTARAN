@@ -30,6 +30,9 @@ class Sesion(db.Model):
         return {
             "id": self.id,
             "estado": self.estado,
-            "fecha_inicio": self.fecha_inicio.isoformat(),
-            "fecha_fin": self.fecha_fin.isoformat() if self.fecha_fin else None,
+            # "Z" al final indica explícitamente que es UTC — sin esto,
+            # el navegador asume que la hora ya está en su huso horario
+            # local y la muestra corrida.
+            "fecha_inicio": self.fecha_inicio.isoformat() + "Z",
+            "fecha_fin": (self.fecha_fin.isoformat() + "Z") if self.fecha_fin else None,
         }
