@@ -73,5 +73,29 @@
     "inicia_sesion_enlace": "inicia sesión",
     "inicia_sesion_o": "o",
     "registrate_enlace": "regístrate"
+  },
+  "conectar": {
+    "titulo": "Conectar",
+    "inicia_sesion_pre": "Para conectarte,",
+    "inicia_sesion_enlace": "inicia sesión",
+    "inicia_sesion_o": "o",
+    "registrate_enlace": "regístrate",
+
+    "voluntario_disponible_true": "Estás disponible para escuchar",
+    "voluntario_disponible_false": "No estás disponible en este momento",
+    "voluntario_boton_marcar_disponible": "Marcarme disponible",
+    "voluntario_boton_marcar_no_disponible": "Ya no estoy disponible",
+
+    "busca_sin_sesion_texto": "Cuando estés listo, te conectamos con la primera persona voluntaria disponible.",
+    "busca_boton_conectar": "Conectarme con alguien para hablar",
+    "busca_conectando": "Buscando a alguien disponible...",
+    "busca_sin_voluntarios": "No hay voluntarios disponibles en este momento. Intenta de nuevo en un rato.",
+
+    "sesion_activa_titulo": "Estás en una conversación activa",
+    "sesion_activa_desde": "Conectado desde",
+    "boton_finalizar": "Finalizar conversación",
+    "finalizando": "Finalizando...",
+
+    "error_generico": "Algo salió mal. Intenta de nuevo."
   }
 }
