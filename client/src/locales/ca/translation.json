@@ -73,5 +73,29 @@
     "inicia_sesion_enlace": "inicia sessió",
     "inicia_sesion_o": "o",
     "registrate_enlace": "registra't"
+  },
+  "conectar": {
+    "titulo": "Connectar",
+    "inicia_sesion_pre": "Per connectar-te,",
+    "inicia_sesion_enlace": "inicia sessió",
+    "inicia_sesion_o": "o",
+    "registrate_enlace": "registra't",
+
+    "voluntario_disponible_true": "Estàs disponible per escoltar",
+    "voluntario_disponible_false": "No estàs disponible en aquest moment",
+    "voluntario_boton_marcar_disponible": "Marcar-me disponible",
+    "voluntario_boton_marcar_no_disponible": "Ja no estic disponible",
+
+    "busca_sin_sesion_texto": "Quan estiguis a punt, et connectem amb la primera persona voluntària disponible.",
+    "busca_boton_conectar": "Connectar-me amb algú per parlar",
+    "busca_conectando": "Buscant algú disponible...",
+    "busca_sin_voluntarios": "No hi ha voluntaris disponibles en aquest moment. Torna-ho a provar d'aquí una estona.",
+
+    "sesion_activa_titulo": "Estàs en una conversa activa",
+    "sesion_activa_desde": "Connectat des de",
+    "boton_finalizar": "Finalitzar conversa",
+    "finalizando": "Finalitzant...",
+
+    "error_generico": "Alguna cosa ha anat malament. Torna-ho a provar."
   }
 }

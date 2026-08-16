@@ -14,13 +14,17 @@ function Apoyo() {
         <div className="tarjeta">
           <h3>{t('apoyo.tarjeta_hablar.titulo')}</h3>
           <p>{t('apoyo.tarjeta_hablar.texto')}</p>
-          <button>{t('apoyo.tarjeta_hablar.boton')}</button>
+          <Link to="/conectar">
+            <button>{t('apoyo.tarjeta_hablar.boton')}</button>
+          </Link>
         </div>
 
         <div className="tarjeta">
           <h3>{t('apoyo.tarjeta_escuchar.titulo')}</h3>
           <p>{t('apoyo.tarjeta_escuchar.texto')}</p>
-          <button>{t('apoyo.tarjeta_escuchar.boton')}</button>
+          <Link to="/conectar">
+            <button>{t('apoyo.tarjeta_escuchar.boton')}</button>
+          </Link>
         </div>
 
         <div className="tarjeta">

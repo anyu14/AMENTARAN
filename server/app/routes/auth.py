@@ -86,5 +86,6 @@ def login():
             email=usuario.email,
             rol=usuario.rol,
             idioma_preferido=usuario.idioma_preferido,
+            disponible=usuario.disponible,
         ),
     ), 200

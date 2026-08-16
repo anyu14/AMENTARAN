@@ -7,6 +7,7 @@ import Nosotros from './pages/Nosotros.jsx'
 import Registro from './pages/Registro.jsx'
 import Login from './pages/Login.jsx'
 import Historias from './pages/Historias.jsx'
+import Conectar from './pages/Conectar.jsx'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/registro" element={<Registro />} />
         <Route path="/login" element={<Login />} />
         <Route path="/historias" element={<Historias />} />
+        <Route path="/conectar" element={<Conectar />} />
       </Routes>
     </main>
   )

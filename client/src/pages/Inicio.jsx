@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 
 function Inicio() {
   const { t } = useTranslation()
@@ -23,10 +24,14 @@ function Inicio() {
           </p>
 
           <div className="hero-botones">
-            <button>{t('hero.boton_hablar')}</button>
-            <button className="boton-secundario">
-              {t('hero.boton_escuchar')}
-            </button>
+            <Link to="/conectar">
+              <button>{t('hero.boton_hablar')}</button>
+            </Link>
+            <Link to="/conectar">
+              <button className="boton-secundario">
+                {t('hero.boton_escuchar')}
+              </button>
+            </Link>
           </div>
         </div>
 
