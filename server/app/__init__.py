@@ -32,9 +32,11 @@ def create_app():
     from app.routes.auth import auth_bp
     from app.routes.historias import historias_bp
     from app.routes.matching import matching_bp
+    from app.routes.mensajes import mensajes_bp
     app.register_blueprint(main_bp)
     app.register_blueprint(auth_bp)
     app.register_blueprint(historias_bp)
     app.register_blueprint(matching_bp)
+    app.register_blueprint(mensajes_bp)
 
     return app

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { apiFetch } from '../api/client.js'
 import { useAuth } from '../context/useAuth.js'
+import Chat from '../components/Chat.jsx'
 
 function Conectar() {
   const { t } = useTranslation()
@@ -124,7 +125,10 @@ function Conectar() {
             {t('conectar.sesion_activa_desde')}{' '}
             {new Date(sesion.fecha_inicio).toLocaleString()}
           </p>
-          <button onClick={manejarFinalizar} disabled={procesando}>
+
+          <Chat sesionId={sesion.id} />
+
+          <button onClick={manejarFinalizar} disabled={procesando} style={{ marginTop: '12px' }}>
             {procesando ? t('conectar.finalizando') : t('conectar.boton_finalizar')}
           </button>
         </div>
