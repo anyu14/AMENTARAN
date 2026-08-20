@@ -97,5 +97,14 @@
     "finalizando": "Finalitzant...",
 
     "error_generico": "Alguna cosa ha anat malament. Torna-ho a provar."
+  },
+  "chat": {
+    "vacio": "Encara no hi ha missatges. Escriu el primer.",
+    "cargando": "Carregant missatges...",
+    "error_cargar": "No s'han pogut carregar els missatges.",
+    "placeholder": "Escriu un missatge...",
+    "boton_enviar": "Enviar",
+    "enviando": "Enviant...",
+    "error_enviar": "No s'ha pogut enviar el missatge. Torna-ho a provar."
   }
 }

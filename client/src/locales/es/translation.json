@@ -97,5 +97,14 @@
     "finalizando": "Finalizando...",
 
     "error_generico": "Algo salió mal. Intenta de nuevo."
+  },
+  "chat": {
+    "vacio": "Todavía no hay mensajes. Escribe el primero.",
+    "cargando": "Cargando mensajes...",
+    "error_cargar": "No se pudieron cargar los mensajes.",
+    "placeholder": "Escribe un mensaje...",
+    "boton_enviar": "Enviar",
+    "enviando": "Enviando...",
+    "error_enviar": "No se pudo enviar el mensaje. Intenta de nuevo."
   }
 }
