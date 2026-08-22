@@ -2,7 +2,7 @@ from flask import Flask
 from flask_cors import CORS
 
 from app.config import Config
-from app.extensions import db, migrate, jwt
+from app.extensions import db, migrate, jwt, socketio
 
 
 def create_app():
@@ -22,10 +22,16 @@ def create_app():
     db.init_app(app)
     migrate.init_app(app, db)
     jwt.init_app(app)
+    socketio.init_app(app)
 
     # Importa los modelos para que SQLAlchemy/Alembic los conozca
     # (si no se importan en algún punto, Alembic no los detecta).
     from app import models  # noqa: F401
+
+    # Registra los manejadores de eventos de WebSocket (conexión, unirse
+    # a una conversación, etc.) — igual que los modelos, si no se
+    # importan en algún punto, nunca quedan activos.
+    from app import sockets  # noqa: F401
 
     # Registramos las rutas definidas en app/routes/
     from app.routes.main import main_bp

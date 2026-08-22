@@ -20,6 +20,15 @@ class Sesion(db.Model):
     def __repr__(self):
         return f"<Sesion {self.id} ({self.estado})>"
 
+    def es_parte(self, usuario_id):
+        """¿Este usuario es uno de los dos participantes de la sesión?
+
+        Se usa tanto en los endpoints REST (mensajes.py, matching.py)
+        como en los manejadores de WebSocket (sockets.py) — vive acá,
+        en el modelo, para que la regla exista en un solo lugar.
+        """
+        return usuario_id in (self.usuario_busca_id, self.usuario_voluntario_id)
+
     def to_dict(self):
         """Versión de la sesión segura para devolver por la API.
 

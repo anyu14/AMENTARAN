@@ -105,6 +105,7 @@
     "placeholder": "Escribe un mensaje...",
     "boton_enviar": "Enviar",
     "enviando": "Enviando...",
+    "conectando": "Conectando...",
     "error_enviar": "No se pudo enviar el mensaje. Intenta de nuevo."
   }
 }
