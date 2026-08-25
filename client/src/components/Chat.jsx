@@ -1,39 +1,56 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { io } from 'socket.io-client'
 import { apiFetch } from '../api/client.js'
+import { useAuth } from '../context/useAuth.js'
 
-const INTERVALO_POLLING_MS = 4000
+const API_URL = import.meta.env.VITE_API_URL
 
 function Chat({ sesionId }) {
   const { t } = useTranslation()
+  const { usuario } = useAuth()
 
   const [mensajes, setMensajes] = useState([])
   const [cargando, setCargando] = useState(true)
   const [errorCarga, setErrorCarga] = useState('')
+  // Recién dejamos enviar cuando el servidor confirmó que nos unió a
+  // la sala — si no, nuestro propio mensaje podría no volver por el
+  // WebSocket (se manda igual, pero no lo veríamos aparecer solo).
+  const [unidoALaSala, setUnidoALaSala] = useState(false)
 
   const [contenido, setContenido] = useState('')
   const [enviando, setEnviando] = useState(false)
   const [errorEnvio, setErrorEnvio] = useState('')
 
-  // Cada petición de mensajes lleva un número de secuencia. Si dos
-  // quedan "en vuelo" a la vez (por ejemplo, por lentitud de red) y la
-  // más vieja responde después que la más nueva, se descarta — así una
-  // respuesta desactualizada nunca pisa a una más reciente.
-  const ultimaPeticionId = useRef(0)
+  function agregarMensajes(nuevos) {
+    setMensajes((actuales) => {
+      const combinados = [...actuales]
+      for (const m of nuevos) {
+        if (!combinados.some((existente) => existente.id === m.id)) {
+          combinados.push(m)
+        }
+      }
+      combinados.sort((a, b) => new Date(a.fecha_envio) - new Date(b.fecha_envio))
+      return combinados
+    })
+  }
 
   useEffect(() => {
     let cancelado = false
 
-    async function cargarMensajes() {
-      const idPeticion = ++ultimaPeticionId.current
+    async function cargarHistorial() {
       try {
         const datos = await apiFetch(`/api/sesiones/${sesionId}/mensajes`)
-        if (!cancelado && idPeticion === ultimaPeticionId.current) {
-          setMensajes(datos)
+        if (!cancelado) {
+          // Se fusiona con lo que ya haya en pantalla (en vez de
+          // reemplazar todo) por si un mensaje llegó por WebSocket
+          // mientras esta petición todavía estaba en camino — así
+          // nunca se pierde uno que ya viste aparecer.
+          agregarMensajes(datos)
           setErrorCarga('')
         }
       } catch {
-        if (!cancelado && idPeticion === ultimaPeticionId.current) {
+        if (!cancelado) {
           setErrorCarga(t('chat.error_cargar'))
         }
       } finally {
@@ -43,16 +60,40 @@ function Chat({ sesionId }) {
       }
     }
 
-    cargarMensajes()
-    // Todavía no hay tiempo real: cada tanto volvemos a preguntar al
-    // backend si hay mensajes nuevos, mientras el chat esté abierto.
-    const intervalo = setInterval(cargarMensajes, INTERVALO_POLLING_MS)
+    cargarHistorial()
+
+    const token = localStorage.getItem('amentaran_token')
+    const socket = io(API_URL, { auth: { token } })
+
+    // Se une a la sala de esta conversación cada vez que la conexión
+    // se confirma — incluidas las reconexiones automáticas que hace
+    // socket.io-client solo, ya que el servidor no recuerda a qué sala
+    // pertenecía un socket que se desconectó. El callback es la
+    // confirmación del servidor de que ya estamos adentro.
+    socket.on('connect', () => {
+      setUnidoALaSala(false)
+      socket.emit('unirse_sesion', { sesion_id: sesionId }, (respuesta) => {
+        if (!cancelado) {
+          setUnidoALaSala(Boolean(respuesta?.ok))
+        }
+      })
+    })
+
+    socket.on('disconnect', () => {
+      if (!cancelado) setUnidoALaSala(false)
+    })
+
+    socket.on('mensaje_nuevo', (mensaje) => {
+      if (cancelado) return
+      const { autor_id, ...mensajePublico } = mensaje
+      agregarMensajes([{ ...mensajePublico, es_mio: autor_id === usuario.id }])
+    })
 
     return () => {
       cancelado = true
-      clearInterval(intervalo)
+      socket.disconnect()
     }
-  }, [sesionId, t])
+  }, [sesionId, t, usuario.id])
 
   async function manejarEnviar(evento) {
     evento.preventDefault()
@@ -61,15 +102,13 @@ function Chat({ sesionId }) {
     setErrorEnvio('')
     setEnviando(true)
     try {
-      const nuevoMensaje = await apiFetch('/api/mensajes', {
+      await apiFetch('/api/mensajes', {
         method: 'POST',
         body: { sesion_id: sesionId, contenido },
       })
-      // El propio envío ya devuelve el mensaje creado (con es_mio:
-      // true) — lo agregamos directo a la lista en vez de volver a
-      // pedirle todo al backend, más rápido y sin arriesgar una
-      // carrera con el polling automático.
-      setMensajes((actuales) => [...actuales, nuevoMensaje])
+      // No hace falta agregar el mensaje a mano acá: como también
+      // estamos unidos a esta sala, el propio WebSocket nos lo va a
+      // devolver por "mensaje_nuevo", igual que a la otra persona.
       setContenido('')
     } catch (err) {
       setErrorEnvio(err.message || t('chat.error_enviar'))
@@ -129,8 +168,12 @@ function Chat({ sesionId }) {
           maxLength={5000}
           style={{ flex: 1, padding: '10px' }}
         />
-        <button type="submit" disabled={enviando}>
-          {enviando ? t('chat.enviando') : t('chat.boton_enviar')}
+        <button type="submit" disabled={enviando || !unidoALaSala}>
+          {enviando
+            ? t('chat.enviando')
+            : unidoALaSala
+              ? t('chat.boton_enviar')
+              : t('chat.conectando')}
         </button>
       </form>
       {errorEnvio && <p style={{ color: '#c0392b' }}>{errorEnvio}</p>}

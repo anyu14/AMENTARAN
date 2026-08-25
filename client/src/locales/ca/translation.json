@@ -105,6 +105,7 @@
     "placeholder": "Escriu un missatge...",
     "boton_enviar": "Enviar",
     "enviando": "Enviant...",
+    "conectando": "Connectant...",
     "error_enviar": "No s'ha pogut enviar el missatge. Torna-ho a provar."
   }
 }

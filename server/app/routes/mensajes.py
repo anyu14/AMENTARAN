@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from sqlalchemy.exc import IntegrityError
 
-from app.extensions import db
+from app.extensions import db, socketio
 from app.models.sesion import Sesion
 from app.models.mensaje import Mensaje
 
@@ -10,10 +10,6 @@ mensajes_bp = Blueprint("mensajes", __name__, url_prefix="/api")
 
 CONTENIDO_MAX_LARGO = 5000
 LIMITE_LISTADO = 200
-
-
-def _es_parte_de_la_sesion(sesion, usuario_id):
-    return usuario_id in (sesion.usuario_busca_id, sesion.usuario_voluntario_id)
 
 
 @mensajes_bp.route("/mensajes", methods=["POST"])
@@ -42,7 +38,7 @@ def enviar_mensaje():
     if sesion is None:
         return jsonify(error="Sesión no encontrada."), 404
 
-    if not _es_parte_de_la_sesion(sesion, usuario_id):
+    if not sesion.es_parte(usuario_id):
         return jsonify(error="No tienes permiso para escribir en esta conversación."), 403
 
     if sesion.estado != "activa":
@@ -64,7 +60,20 @@ def enviar_mensaje():
         db.session.rollback()
         return jsonify(error="No se pudo enviar el mensaje. Intenta de nuevo."), 409
 
-    return jsonify({**nuevo_mensaje.to_dict(), "es_mio": True}), 201
+    mensaje_dict = nuevo_mensaje.to_dict()
+
+    # Avisa en vivo a quien esté conectado a esta conversación. Se
+    # incluye autor_id acá (a diferencia de la respuesta REST, que
+    # nunca lo expone) porque el frontend lo necesita para saber, del
+    # lado de cada quien, si el mensaje es "mío" o "del otro" — y
+    # ambos ya saben que son los únicos dos en esta conversación.
+    socketio.emit(
+        "mensaje_nuevo",
+        {**mensaje_dict, "autor_id": nuevo_mensaje.autor_id},
+        room=f"sesion_{sesion_id}",
+    )
+
+    return jsonify({**mensaje_dict, "es_mio": True}), 201
 
 
 @mensajes_bp.route("/sesiones/<int:sesion_id>/mensajes", methods=["GET"])
@@ -76,7 +85,7 @@ def listar_mensajes(sesion_id):
     if sesion is None:
         return jsonify(error="Sesión no encontrada."), 404
 
-    if not _es_parte_de_la_sesion(sesion, usuario_id):
+    if not sesion.es_parte(usuario_id):
         return jsonify(error="No tienes permiso para ver esta conversación."), 403
 
     # A propósito no se filtra por estado de la sesión: el historial de
