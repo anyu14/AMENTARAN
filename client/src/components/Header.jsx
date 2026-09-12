@@ -25,6 +25,7 @@ function Header() {
 
       {usuario ? (
         <div>
+          {usuario.es_moderador && <Link to="/moderacion">{t('nav.moderacion')}</Link>}{' '}
           <span>{usuario.email}</span>{' '}
           <button onClick={manejarLogout}>{t('nav.logout')}</button>
         </div>

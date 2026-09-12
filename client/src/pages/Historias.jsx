@@ -16,6 +16,11 @@ function Historias() {
   const [publicando, setPublicando] = useState(false)
   const [errorPublicar, setErrorPublicar] = useState('')
 
+  // Estado del reporte de cada historia, por id: 'reportando', 'reportado',
+  // o un mensaje de error. Así cada tarjeta reacciona de forma
+  // independiente sin necesitar un estado por separado por historia.
+  const [estadoReportes, setEstadoReportes] = useState({})
+
   useEffect(() => {
     // Solo se usa aquí, al montar la página, así que vive dentro del
     // propio efecto en vez de como función aparte.
@@ -54,6 +59,20 @@ function Historias() {
     }
   }
 
+  async function manejarReportar(historiaId) {
+    setEstadoReportes((actuales) => ({ ...actuales, [historiaId]: 'reportando' }))
+
+    try {
+      await apiFetch(`/api/historias/${historiaId}/reportar`, { method: 'POST' })
+      setEstadoReportes((actuales) => ({ ...actuales, [historiaId]: 'reportado' }))
+    } catch (err) {
+      setEstadoReportes((actuales) => ({
+        ...actuales,
+        [historiaId]: err.message || t('historias.error_reportar'),
+      }))
+    }
+  }
+
   return (
     <section style={{ maxWidth: '640px', margin: '60px auto', padding: '0 20px' }}>
       <h2>{t('historias.titulo')}</h2>
@@ -85,19 +104,45 @@ function Historias() {
       {errorCarga && <p style={{ color: '#c0392b' }}>{errorCarga}</p>}
       {!cargando && !errorCarga && historias.length === 0 && <p>{t('historias.vacio')}</p>}
 
-      {historias.map((historia) => (
-        <div
-          key={historia.id}
-          className="tarjeta"
-          style={{ marginBottom: '16px', textAlign: 'left' }}
-        >
-          <p style={{ whiteSpace: 'pre-wrap' }}>{historia.contenido}</p>
-          <small>
-            {historia.idioma.toUpperCase()} ·{' '}
-            {new Date(historia.fecha_creacion).toLocaleDateString()}
-          </small>
-        </div>
-      ))}
+      {historias.map((historia) => {
+        const estadoReporte = estadoReportes[historia.id]
+        const yaReportado = estadoReporte === 'reportado'
+        const reportando = estadoReporte === 'reportando'
+        const errorReporte = estadoReporte && !yaReportado && !reportando ? estadoReporte : ''
+
+        return (
+          <div
+            key={historia.id}
+            className="tarjeta"
+            style={{ marginBottom: '16px', textAlign: 'left' }}
+          >
+            <p style={{ whiteSpace: 'pre-wrap' }}>{historia.contenido}</p>
+            <small>
+              {historia.idioma.toUpperCase()} ·{' '}
+              {new Date(historia.fecha_creacion).toLocaleDateString()}
+            </small>
+
+            {usuario && (
+              <div style={{ marginTop: '8px' }}>
+                <button
+                  onClick={() => manejarReportar(historia.id)}
+                  disabled={reportando || yaReportado}
+                  style={{ fontSize: '0.85em' }}
+                >
+                  {reportando
+                    ? t('historias.reportando')
+                    : yaReportado
+                      ? t('historias.reportado')
+                      : t('historias.boton_reportar')}
+                </button>
+                {errorReporte && (
+                  <small style={{ color: '#c0392b', marginLeft: '8px' }}>{errorReporte}</small>
+                )}
+              </div>
+            )}
+          </div>
+        )
+      })}
     </section>
   )
 }
