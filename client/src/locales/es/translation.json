@@ -5,7 +5,8 @@
     "nosotros": "Nosotros",
     "login": "Iniciar sesión",
     "registro": "Registrarse",
-    "logout": "Cerrar sesión"
+    "logout": "Cerrar sesión",
+    "moderacion": "Moderación"
   },
   "hero": {
     "bienvenida": "BIENVENIDO A AMENTARAN ♡",
@@ -72,7 +73,26 @@
     "inicia_sesion_pre": "Para compartir tu historia,",
     "inicia_sesion_enlace": "inicia sesión",
     "inicia_sesion_o": "o",
-    "registrate_enlace": "regístrate"
+    "registrate_enlace": "regístrate",
+    "boton_reportar": "Reportar",
+    "reportando": "Reportando...",
+    "reportado": "Reportado",
+    "error_reportar": "No se pudo reportar la historia."
+  },
+  "moderacion": {
+    "titulo": "Moderación de historias",
+    "sin_permiso": "No tienes permiso para ver esta página.",
+    "cargando": "Cargando historias reportadas...",
+    "error_cargar": "No se pudieron cargar las historias reportadas.",
+    "vacio": "No hay historias reportadas por el momento.",
+    "cantidad_reportes": "reportes",
+    "motivos_titulo": "Motivos:",
+    "etiqueta_oculta": "Oculta",
+    "boton_ocultar": "Ocultar",
+    "ocultando": "Ocultando...",
+    "boton_mostrar": "Mostrar",
+    "mostrando": "Mostrando...",
+    "error_accion": "No se pudo completar la acción. Intenta de nuevo."
   },
   "conectar": {
     "titulo": "Conectar",

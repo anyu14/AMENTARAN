@@ -16,6 +16,10 @@ class Historia(db.Model):
     # de cara al usuario, la historia siempre aparece sin autor.
     usuario_id = db.Column(db.Integer, db.ForeignKey("usuarios.id"), nullable=False)
 
+    # Si un moderador la oculta tras revisar reportes, deja de aparecer
+    # en el listado público — pero no se borra de la base de datos.
+    oculta = db.Column(db.Boolean, nullable=False, default=False)
+
     def __repr__(self):
         return f"<Historia {self.id}>"
 

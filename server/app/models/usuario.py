@@ -25,5 +25,10 @@ class Usuario(db.Model):
     # libre para que el sistema lo conecte con alguien que pidió hablar.
     disponible = db.Column(db.Boolean, nullable=False, default=False)
 
+    # Independiente del rol (busca_apoyo/voluntario): permite revisar
+    # historias reportadas y ocultarlas. Por ahora se activa a mano
+    # directamente en la base de datos, no hay una UI para asignarlo.
+    es_moderador = db.Column(db.Boolean, nullable=False, default=False)
+
     def __repr__(self):
         return f"<Usuario {self.email}>"
