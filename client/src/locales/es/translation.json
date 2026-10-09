@@ -18,37 +18,78 @@
     "boton_hablar": "💬 Necesito hablar",
     "boton_escuchar": "♡ Quiero escuchar"
   },
-  "apoyo": {
+
+"inicio": {
+  "etiqueta": "Personas · Naturaleza · Comunidad",
+  "titulo_pre": "Un espacio para cuidarnos en",
+  "titulo_destacado": "comunidad",
+  "descripcion_linea1": "Habla, escucha y comparte a tu ritmo,",
+  "descripcion_linea2": "en un entorno seguro.",
+  "imagen_alt": "Taza, flores, cuaderno y una planta frente a un paisaje del Val d’Aran",
+  "frase_imagen_linea1": "Aquí también",
+  "frase_imagen_linea2": "crecemos juntos",
+  "opciones_aria": "Opciones de apoyo",
+  "hablar_titulo": "Habla sin juicios",
+  "hablar_texto": "Comparte lo que sientes con personas que te entienden.",
+  "escuchar_titulo": "Escucha y acompaña",
+  "escuchar_texto": "Tu presencia también puede hacer la diferencia.",
+  "historias_titulo": "Historias que inspiran",
+  "historias_texto": "Lee experiencias reales de personas de nuestra comunidad.",
+  "talleres_titulo": "Talleres y actividades",
+  "talleres_texto": "Aprender, compartir, crecer.",
+  "comunidad_titulo": "Comunidad local",
+  "comunidad_texto": "Personas reales en el Val d’Aran.",
+  "recursos_titulo": "Recursos de bienestar",
+  "recursos_texto": "Herramientas para tu día a día."
+},
+    "apoyo": {
+    "etiqueta": "Estamos para acompañarte",
     "titulo": "¿Cómo podemos acompañarte?",
     "descripcion": "Elige la opción que mejor se adapte a lo que necesitas en este momento.",
+    "opciones_titulo": "Opciones de apoyo",
     "tarjeta_hablar": {
-      "titulo": "💬 Necesito hablar",
+      "titulo": "Necesito hablar",
       "texto": "Encuentra un espacio seguro donde puedas expresar cómo te sientes.",
       "boton": "Buscar apoyo"
     },
     "tarjeta_escuchar": {
-      "titulo": "🤝 Quiero escuchar",
+      "titulo": "Quiero escuchar",
       "texto": "Ofrece tu tiempo para escuchar y acompañar a alguien que lo necesite.",
       "boton": "Quiero ayudar"
     },
     "tarjeta_historias": {
-      "titulo": "📖 Historias",
+      "titulo": "Historias",
       "texto": "Lee experiencias de otras personas o comparte tu historia de forma anónima.",
       "boton": "Ver historias"
     },
     "tarjeta_ia": {
-      "titulo": "✨ Amentaran IA",
+      "titulo": "Amentaran IA",
       "texto": "Habla con nuestra inteligencia artificial cuando necesites expresarte u orientarte.",
-      "boton": "Hablar con IA"
-    }
-  },
-  "nosotros": {
-    "titulo": "Nosotros",
-    "texto": "Contenido próximamente."
+      "boton": "Próximamente"
+    },
+    "talleres": {
+      "etiqueta": "Aprender, compartir, crecer",
+      "titulo": "Talleres y actividades",
+      "descripcion": "Un espacio para descubrir encuentros, talleres y actividades creadas para cuidarnos y crecer en comunidad.",
+      "proximamente_titulo": "Próximas actividades",
+      "proximamente_texto": "Aquí publicaremos los nuevos talleres y encuentros de la comunidad."
+    },
+    "comunidad_frase": "Aquí estamos para ti, siempre que lo necesites.",
+    "comunidad_titulo": "Amentaran es comunidad, es apoyo, es comprensión."
   },
   "auth": {
     "email": "Email",
     "password": "Contraseña",
+    "imagen_alt": "Paisaje natural del Val d'Aran",
+    "registro_portada_titulo": "Un lugar seguro para comenzar",
+    "registro_portada_texto": "Forma parte de una comunidad donde hablar, escuchar y sentirse acompañado importa.",
+    "registro_eyebrow": "Únete a la comunidad",
+    "registro_descripcion": "Crea tu espacio personal en Amentaran.",
+    "email_placeholder": "nombre@correo.com",
+    "password_placeholder": "Mínimo 8 caracteres",
+    "rol_busca_descripcion": "Quiero compartir cómo me siento.",
+    "rol_voluntario_descripcion": "Quiero acompañar y escuchar.",
+    "privacidad": "Tu información está protegida y será tratada con respeto.",
     "rol_pregunta": "¿Qué te trae por aquí?",
     "rol_busca_apoyo": "💬 Necesito hablar",
     "rol_voluntario": "🤝 Quiero escuchar",

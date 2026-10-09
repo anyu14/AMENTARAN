@@ -9,13 +9,13 @@ function LanguageSwitcher() {
         onClick={() => i18n.changeLanguage('es')}
         disabled={i18n.resolvedLanguage === 'es'}
       >
-        ES
+        Epañol
       </button>
       <button
         onClick={() => i18n.changeLanguage('ca')}
         disabled={i18n.resolvedLanguage === 'ca'}
       >
-        CA
+        Català
       </button>
     </div>
   )
