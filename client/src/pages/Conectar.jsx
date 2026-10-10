@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { apiFetch } from '../api/client.js'
 import { useAuth } from '../context/useAuth.js'
 import Chat from '../components/Chat.jsx'
+import chatConversation from '../assets/chat-conversation.png'
 
 function Conectar() {
   const { t } = useTranslation()
@@ -93,33 +94,41 @@ function Conectar() {
 
   if (!usuario) {
     return (
-      <section style={{ maxWidth: '480px', margin: '60px auto', padding: '0 20px' }}>
-        <h2>{t('conectar.titulo')}</h2>
-        <p>
-          {t('conectar.inicia_sesion_pre')} <Link to="/login">{t('conectar.inicia_sesion_enlace')}</Link>{' '}
-          {t('conectar.inicia_sesion_o')} <Link to="/registro">{t('conectar.registrate_enlace')}</Link>.
-        </p>
-      </section>
+      <main className="am-connect-page">
+        <section className="am-connect-guest am-page-width">
+          <div className="am-connect-guest__visual">
+            <img src={chatConversation} alt={t('conectar.imagen_alt')} />
+            <span className="am-chat-bubble am-chat-bubble--one" aria-hidden="true">{t('conectar.burbuja')}</span>
+            <span className="am-chat-bubble am-chat-bubble--two" aria-hidden="true">♡</span>
+          </div>
+          <div className="am-connect-guest__copy">
+            <span className="am-page-eyebrow">{t('conectar.etiqueta')}</span>
+            <h1>{t('conectar.titulo')}</h1>
+            <p>{t('conectar.descripcion')}</p>
+            <div className="am-connect-benefits"><span>✓ {t('conectar.beneficio_uno')}</span><span>✓ {t('conectar.beneficio_dos')}</span><span>✓ {t('conectar.beneficio_tres')}</span></div>
+            <div className="am-connect-actions"><Link className="am-btn am-btn--primary" to="/login">{t('conectar.inicia_sesion_enlace')}</Link><Link className="am-btn am-btn--secondary" to="/registro">{t('conectar.registrate_enlace')}</Link></div>
+            <small>{t('conectar.aviso')}</small>
+          </div>
+        </section>
+      </main>
     )
   }
 
   if (cargando) {
     return (
-      <section style={{ maxWidth: '480px', margin: '60px auto', padding: '0 20px' }}>
-        <h2>{t('conectar.titulo')}</h2>
-        <p>{t('auth.cargando')}</p>
-      </section>
+      <main className="am-connect-page"><section className="am-connect-panel am-page-width"><h1>{t('conectar.titulo')}</h1><p>{t('auth.cargando')}</p></section></main>
     )
   }
 
   return (
-    <section style={{ maxWidth: '480px', margin: '60px auto', padding: '0 20px' }}>
-      <h2>{t('conectar.titulo')}</h2>
+    <main className="am-connect-page">
+      <section className="am-connect-panel am-page-width">
+      <div className="am-connect-panel__heading"><span className="am-page-eyebrow">{t('conectar.etiqueta')}</span><h1>{t('conectar.titulo')}</h1><p>{t('conectar.descripcion_usuario')}</p></div>
 
-      {error && <p style={{ color: '#c0392b' }}>{error}</p>}
+      {error && <p className="am-inline-error">{error}</p>}
 
       {sesion ? (
-        <div className="tarjeta">
+        <div className="am-chat-session">
           <h3>{t('conectar.sesion_activa_titulo')}</h3>
           <p>
             {t('conectar.sesion_activa_desde')}{' '}
@@ -128,32 +137,33 @@ function Conectar() {
 
           <Chat sesionId={sesion.id} />
 
-          <button onClick={manejarFinalizar} disabled={procesando} style={{ marginTop: '12px' }}>
+          <button className="am-danger-button" onClick={manejarFinalizar} disabled={procesando}>
             {procesando ? t('conectar.finalizando') : t('conectar.boton_finalizar')}
           </button>
         </div>
       ) : usuario.rol === 'voluntario' ? (
-        <div className="tarjeta">
-          <p>
+        <div className="am-connect-role-card">
+          <span className="am-connect-role-card__icon" aria-hidden="true">♡</span><h2>{t('conectar.voluntario_titulo')}</h2><p>
             {disponible
               ? t('conectar.voluntario_disponible_true')
               : t('conectar.voluntario_disponible_false')}
           </p>
-          <button onClick={manejarDisponibilidad} disabled={procesando}>
+          <button className="am-btn am-btn--primary" onClick={manejarDisponibilidad} disabled={procesando}>
             {disponible
               ? t('conectar.voluntario_boton_marcar_no_disponible')
               : t('conectar.voluntario_boton_marcar_disponible')}
           </button>
         </div>
       ) : (
-        <div className="tarjeta">
-          <p>{t('conectar.busca_sin_sesion_texto')}</p>
-          <button onClick={manejarConectar} disabled={procesando}>
+        <div className="am-connect-role-card">
+          <span className="am-connect-role-card__icon" aria-hidden="true">💬</span><h2>{t('conectar.busca_titulo')}</h2><p>{t('conectar.busca_sin_sesion_texto')}</p>
+          <button className="am-btn am-btn--primary" onClick={manejarConectar} disabled={procesando}>
             {procesando ? t('conectar.busca_conectando') : t('conectar.busca_boton_conectar')}
           </button>
         </div>
       )}
-    </section>
+      </section>
+    </main>
   )
 }
 

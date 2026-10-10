@@ -6,7 +6,11 @@
     "login": "Iniciar sessió",
     "registro": "Registra't",
     "logout": "Tancar sessió",
-    "moderacion": "Moderació"
+    "moderacion": "Moderació",
+    "comunidad": "Comunitat",
+    "recursos": "Recursos",
+    "chat": "Xat",
+    "crear_cuenta": "Crear compte"
   },
   "hero": {
     "bienvenida": "BENVINGUT A AMENTARAN ♡",
@@ -25,7 +29,7 @@
   "titulo_destacado": "comunitat",
   "descripcion_linea1": "Parla, escolta i comparteix al teu ritme,",
   "descripcion_linea2": "en un entorn segur.",
-  "imagen_alt": "Tassa, flors, quadern i una planta davant d’un paisatge de la Vall d’Aran",
+  "imagen_alt": "Grup de joves somrient i compartint en un paisatge de muntanya",
   "frase_imagen_linea1": "Aquí també",
   "frase_imagen_linea2": "creixem junts",
   "opciones_aria": "Opcions de suport",
@@ -40,11 +44,33 @@
   "comunidad_titulo": "Comunitat local",
   "comunidad_texto": "Persones reals a la Vall d’Aran.",
   "recursos_titulo": "Recursos de benestar",
-  "recursos_texto": "Eines per al teu dia a dia."
+  "recursos_texto": "Eines per al teu dia a dia.",
+  "figma_etiqueta": "Un lloc per ser tu, sense judicis",
+  "figma_titulo": "No has de passar per tot",
+  "figma_destacado": "a soles.",
+  "figma_descripcion": "Un espai per compartir, escoltar i trobar recursos que t'ajudin a cuidar el teu benestar emocional.",
+  "figma_boton_comunidad": "Explorar la comunitat",
+  "figma_boton_recursos": "Trobar recursos",
+  "figma_confianza_titulo": "Un espai segur per compartir",
+  "figma_confianza_texto": "i sentir-te acompanyada",
+  "figma_nota_animo": "Avui em sento...",
+  "figma_nota_calma": "Amb més calma",
+  "figma_nota_escucha": "Aquí t'escoltem",
+  "figma_nota_respeto": "Sense pressa, sense judicis",
+  "figma_ritmo": "Al teu ritme",
+  "figma_ayuda_titulo": "Com et pot ajudar Amentaran?",
+  "figma_ayuda_texto": "No hi ha una única manera de sentir-se millor. Troba la teva.",
+  "figma_descubrir": "Descobrir",
+  "figma_cuidado_etiqueta": "Aquest espai el fem entre tots",
+  "figma_cuidado_titulo": "Parlar amb cura també és cuidar.",
+  "figma_cuidado_texto": "Escoltem sense jutjar, respectem cada procés i protegim la intimitat de qui comparteix.",
+  "figma_normas": "Coneix les nostres normes"
 },
   "apoyo": {
+    "etiqueta": "Som aquí per acompanyar-te",
     "titulo": "Com et podem acompanyar?",
     "descripcion": "Tria l'opció que millor s'adapti al que necessites en aquest moment.",
+    "opciones_titulo": "Opcions de suport",
     "tarjeta_hablar": {
       "titulo": "💬 Necessito parlar",
       "texto": "Troba un espai segur on puguis expressar com et sents.",
@@ -63,8 +89,17 @@
     "tarjeta_ia": {
       "titulo": "✨ Amentaran IA",
       "texto": "Parla amb la nostra intel·ligència artificial quan necessitis expressar-te o orientar-te.",
-      "boton": "Parlar amb la IA"
-    }
+      "boton": "Pròximament"
+    },
+    "talleres": {
+      "etiqueta": "Aprendre, compartir, créixer",
+      "titulo": "Tallers i activitats",
+      "descripcion": "Un espai per descobrir trobades, tallers i activitats creades per cuidar-nos i créixer en comunitat.",
+      "proximamente_titulo": "Pròximes activitats",
+      "proximamente_texto": "Aquí publicarem els nous tallers i trobades de la comunitat."
+    },
+    "comunidad_frase": "Aquí som per a tu, sempre que ho necessitis.",
+    "comunidad_titulo": "Amentaran és comunitat, és suport, és comprensió."
   },
   "nosotros": {
     "titulo": "Nosaltres",
@@ -97,6 +132,25 @@
   },
   "historias": {
     "titulo": "Històries",
+    "etiqueta": "Comunitat Amentaran",
+    "descripcion": "Un lloc on compartir el que vivim, reconèixer-nos en altres persones i sentir que no estem sols.",
+    "nota_titulo": "La teva història importa",
+    "nota_texto": "Comparteix al teu ritme i sense judicis",
+    "comparte_titulo": "Comparteix amb la comunitat",
+    "comparte_texto": "Pots fer-ho de manera anònima i amb les teves pròpies paraules.",
+    "unete_titulo": "Forma part de la conversa",
+    "unete_texto": "Inicia sessió o crea un compte per compartir la teva història. També pots llegir i sentir-te acompanyat.",
+    "feed_etiqueta": "Històries reals",
+    "feed_titulo": "El que comparteix la comunitat",
+    "error_titulo": "No hem pogut connectar amb la comunitat",
+    "error_ayuda": "Comprova que el servidor està iniciat i torna-ho a provar.",
+    "autor_anonimo": "Persona de la comunitat",
+    "aside_titulo": "Un espai cuidat",
+    "aside_texto": "Escoltem sense jutjar i protegim la intimitat de cada persona.",
+    "aside_enlace": "Coneix les nostres normes",
+    "escucha_titulo": "Necessites parlar?",
+    "escucha_texto": "Connecta en privat amb una persona disposada a escoltar-te.",
+    "escucha_enlace": "Anar al xat",
     "cargando": "Carregant històries...",
     "error_cargar": "No s'han pogut carregar les històries. Torna-ho a provar més tard.",
     "vacio": "Encara no hi ha històries publicades. Sigues la primera persona a compartir la teva.",
@@ -130,6 +184,15 @@
   },
   "conectar": {
     "titulo": "Connectar",
+    "etiqueta": "Una conversa pot ajudar",
+    "descripcion": "Troba un espai privat per parlar amb una persona de la comunitat que és aquí per escoltar-te amb respecte.",
+    "imagen_alt": "Dos joves conversant i escoltant-se en un espai acollidor amb vistes a la muntanya",
+    "burbuja": "Aquí pots parlar",
+    "descripcion_usuario": "Tria com vols participar avui en aquest espai d'escolta.",
+    "beneficio_uno": "Conversa privada",
+    "beneficio_dos": "Escolta sense judicis",
+    "beneficio_tres": "Al teu ritme",
+    "aviso": "Amentaran ofereix acompanyament comunitari i no substitueix l'atenció professional o d'emergències.",
     "inicia_sesion_pre": "Per connectar-te,",
     "inicia_sesion_enlace": "inicia sessió",
     "inicia_sesion_o": "o",
@@ -139,7 +202,9 @@
     "voluntario_disponible_false": "No estàs disponible en aquest moment",
     "voluntario_boton_marcar_disponible": "Marcar-me disponible",
     "voluntario_boton_marcar_no_disponible": "Ja no estic disponible",
+    "voluntario_titulo": "Ofereix un moment d'escolta",
 
+    "busca_titulo": "Parla amb algú de la comunitat",
     "busca_sin_sesion_texto": "Quan estiguis a punt, et connectem amb la primera persona voluntària disponible.",
     "busca_boton_conectar": "Connectar-me amb algú per parlar",
     "busca_conectando": "Buscant algú disponible...",

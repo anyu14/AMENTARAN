@@ -73,61 +73,71 @@ function Historias() {
     }
   }
 
+  const localeFecha = i18n.resolvedLanguage === 'ca' ? 'ca-ES' : 'es-ES'
+
   return (
-    <section style={{ maxWidth: '640px', margin: '60px auto', padding: '0 20px' }}>
-      <h2>{t('historias.titulo')}</h2>
+    <main className="am-community-page">
+      <section className="am-community-hero">
+        <div className="am-page-width am-community-hero__inner">
+          <div>
+            <span className="am-page-eyebrow">{t('historias.etiqueta')}</span>
+            <h1>{t('historias.titulo')}</h1>
+            <p>{t('historias.descripcion')}</p>
+          </div>
+          <div className="am-community-hero__note" aria-hidden="true">
+            <span>♡</span>
+            <strong>{t('historias.nota_titulo')}</strong>
+            <small>{t('historias.nota_texto')}</small>
+          </div>
+        </div>
+      </section>
 
-      {usuario ? (
-        <form onSubmit={manejarPublicar} style={{ marginBottom: '32px' }}>
-          <textarea
-            value={contenido}
-            onChange={(e) => setContenido(e.target.value)}
-            placeholder={t('historias.placeholder_formulario')}
-            rows={4}
-            maxLength={5000}
-            required
-            style={{ width: '100%', padding: '10px', boxSizing: 'border-box' }}
-          />
-          {errorPublicar && <p style={{ color: '#c0392b' }}>{errorPublicar}</p>}
-          <button type="submit" disabled={publicando}>
-            {publicando ? t('historias.publicando') : t('historias.boton_publicar')}
-          </button>
-        </form>
-      ) : (
-        <p style={{ marginBottom: '32px' }}>
-          {t('historias.inicia_sesion_pre')} <Link to="/login">{t('historias.inicia_sesion_enlace')}</Link>{' '}
-          {t('historias.inicia_sesion_o')} <Link to="/registro">{t('historias.registrate_enlace')}</Link>.
-        </p>
-      )}
+      <section className="am-page-width am-community-layout">
+        <div className="am-community-main">
+          {usuario ? (
+            <form className="am-composer" onSubmit={manejarPublicar}>
+              <div className="am-composer__heading"><span aria-hidden="true">✎</span><div><strong>{t('historias.comparte_titulo')}</strong><small>{t('historias.comparte_texto')}</small></div></div>
+              <textarea
+                value={contenido}
+                onChange={(e) => setContenido(e.target.value)}
+                placeholder={t('historias.placeholder_formulario')}
+                rows={4}
+                maxLength={5000}
+                required
+              />
+              {errorPublicar && <p className="am-inline-error">{errorPublicar}</p>}
+              <div className="am-composer__footer"><small>{contenido.length}/5000</small><button type="submit" disabled={publicando}>{publicando ? t('historias.publicando') : t('historias.boton_publicar')}</button></div>
+            </form>
+          ) : (
+            <div className="am-join-card">
+              <span className="am-join-card__icon" aria-hidden="true">☺</span>
+              <div><h2>{t('historias.unete_titulo')}</h2><p>{t('historias.unete_texto')}</p></div>
+              <div className="am-join-card__actions"><Link to="/login">{t('historias.inicia_sesion_enlace')}</Link><Link className="am-btn am-btn--primary" to="/registro">{t('historias.registrate_enlace')}</Link></div>
+            </div>
+          )}
 
-      {cargando && <p>{t('historias.cargando')}</p>}
-      {errorCarga && <p style={{ color: '#c0392b' }}>{errorCarga}</p>}
-      {!cargando && !errorCarga && historias.length === 0 && <p>{t('historias.vacio')}</p>}
+          <div className="am-feed-heading"><div><span aria-hidden="true" />{t('historias.feed_etiqueta')}</div><h2>{t('historias.feed_titulo')}</h2></div>
+          {cargando && <div className="am-status-card">{t('historias.cargando')}</div>}
+          {errorCarga && <div className="am-status-card am-status-card--error"><span aria-hidden="true">!</span><div><strong>{t('historias.error_titulo')}</strong><p>{errorCarga}</p><small>{t('historias.error_ayuda')}</small></div></div>}
+          {!cargando && !errorCarga && historias.length === 0 && <div className="am-status-card">{t('historias.vacio')}</div>}
 
-      {historias.map((historia) => {
+          <div className="am-story-list">{historias.map((historia) => {
         const estadoReporte = estadoReportes[historia.id]
         const yaReportado = estadoReporte === 'reportado'
         const reportando = estadoReporte === 'reportando'
         const errorReporte = estadoReporte && !yaReportado && !reportando ? estadoReporte : ''
 
         return (
-          <div
-            key={historia.id}
-            className="tarjeta"
-            style={{ marginBottom: '16px', textAlign: 'left' }}
-          >
-            <p style={{ whiteSpace: 'pre-wrap' }}>{historia.contenido}</p>
-            <small>
-              {historia.idioma.toUpperCase()} ·{' '}
-              {new Date(historia.fecha_creacion).toLocaleDateString()}
-            </small>
+          <article key={historia.id} className="am-story-card">
+            <div className="am-story-card__meta"><span className="am-story-avatar" aria-hidden="true">A</span><div><strong>{t('historias.autor_anonimo')}</strong><small>{new Date(historia.fecha_creacion).toLocaleDateString(localeFecha)} · {historia.idioma.toUpperCase()}</small></div></div>
+            <p>{historia.contenido}</p>
 
             {usuario && (
-              <div style={{ marginTop: '8px' }}>
+              <div className="am-story-card__actions">
                 <button
+                  type="button"
                   onClick={() => manejarReportar(historia.id)}
                   disabled={reportando || yaReportado}
-                  style={{ fontSize: '0.85em' }}
                 >
                   {reportando
                     ? t('historias.reportando')
@@ -136,14 +146,21 @@ function Historias() {
                       : t('historias.boton_reportar')}
                 </button>
                 {errorReporte && (
-                  <small style={{ color: '#c0392b', marginLeft: '8px' }}>{errorReporte}</small>
+                  <small className="am-inline-error">{errorReporte}</small>
                 )}
               </div>
             )}
-          </div>
+          </article>
         )
-      })}
-    </section>
+      })}</div>
+        </div>
+
+        <aside className="am-community-aside">
+          <div className="am-aside-card"><span aria-hidden="true">🌿</span><h3>{t('historias.aside_titulo')}</h3><p>{t('historias.aside_texto')}</p><Link to="/nosotros">{t('historias.aside_enlace')} →</Link></div>
+          <div className="am-aside-card am-aside-card--soft"><span aria-hidden="true">💬</span><h3>{t('historias.escucha_titulo')}</h3><p>{t('historias.escucha_texto')}</p><Link to="/conectar">{t('historias.escucha_enlace')} →</Link></div>
+        </aside>
+      </section>
+    </main>
   )
 }
 
