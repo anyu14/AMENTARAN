@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { apiFetch } from '../api/client.js'
@@ -17,6 +17,7 @@ function Conectar() {
   const [cargando, setCargando] = useState(!!usuario)
   const [procesando, setProcesando] = useState(false)
   const [error, setError] = useState('')
+  const [aviso, setAviso] = useState('')
 
   useEffect(() => {
     if (!usuario) {
@@ -55,6 +56,7 @@ function Conectar() {
 
   async function manejarConectar() {
     setError('')
+    setAviso('')
     setProcesando(true)
     try {
       const nuevaSesion = await apiFetch('/api/matching/conectar', { method: 'POST' })
@@ -92,6 +94,12 @@ function Conectar() {
     }
   }
 
+  const manejarFinalizacionRemota = useCallback(() => {
+    setSesion(null)
+    setError('')
+    setAviso(t('conectar.sesion_finalizada_otro'))
+  }, [t])
+
   if (!usuario) {
     return (
       <main className="am-connect-page">
@@ -126,6 +134,7 @@ function Conectar() {
       <div className="am-connect-panel__heading"><span className="am-page-eyebrow">{t('conectar.etiqueta')}</span><h1>{t('conectar.titulo')}</h1><p>{t('conectar.descripcion_usuario')}</p></div>
 
       {error && <p className="am-inline-error">{error}</p>}
+      {aviso && <p className="am-session-notice">{aviso}</p>}
 
       {sesion ? (
         <div className="am-chat-session">
@@ -135,7 +144,7 @@ function Conectar() {
             {new Date(sesion.fecha_inicio).toLocaleString()}
           </p>
 
-          <Chat sesionId={sesion.id} />
+          <Chat sesionId={sesion.id} onSesionFinalizada={manejarFinalizacionRemota} />
 
           <button className="am-danger-button" onClick={manejarFinalizar} disabled={procesando}>
             {procesando ? t('conectar.finalizando') : t('conectar.boton_finalizar')}

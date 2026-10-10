@@ -6,7 +6,7 @@ import { useAuth } from '../context/useAuth.js'
 
 const API_URL = import.meta.env.VITE_API_URL
 
-function Chat({ sesionId }) {
+function Chat({ sesionId, onSesionFinalizada }) {
   const { t } = useTranslation()
   const { usuario } = useAuth()
 
@@ -89,11 +89,17 @@ function Chat({ sesionId }) {
       agregarMensajes([{ ...mensajePublico, es_mio: autor_id === usuario.id }])
     })
 
+    socket.on('sesion_finalizada', (datos) => {
+      if (!cancelado && Number(datos?.sesion_id) === Number(sesionId)) {
+        onSesionFinalizada?.()
+      }
+    })
+
     return () => {
       cancelado = true
       socket.disconnect()
     }
-  }, [sesionId, t, usuario.id])
+  }, [sesionId, t, usuario.id, onSesionFinalizada])
 
   async function manejarEnviar(evento) {
     evento.preventDefault()

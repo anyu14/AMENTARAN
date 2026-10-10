@@ -208,6 +208,7 @@
 
     "sesion_activa_titulo": "Estás en una conversación activa",
     "sesion_activa_desde": "Conectado desde",
+    "sesion_finalizada_otro": "La otra persona ha finalizado la conversación.",
     "boton_finalizar": "Finalizar conversación",
     "finalizando": "Finalizando...",
 

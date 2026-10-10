@@ -212,6 +212,7 @@
 
     "sesion_activa_titulo": "Estàs en una conversa activa",
     "sesion_activa_desde": "Connectat des de",
+    "sesion_finalizada_otro": "L'altra persona ha finalitzat la conversa.",
     "boton_finalizar": "Finalitzar conversa",
     "finalizando": "Finalitzant...",
 

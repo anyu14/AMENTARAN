@@ -2832,6 +2832,15 @@
 .am-status-card--error small { color: #8d5e59; }
 .am-inline-error { color: #b33e35; }
 
+.am-session-notice {
+  padding: 13px 16px;
+  border: 1px solid #bcded1;
+  border-radius: 13px;
+  background: #edf8f4;
+  color: #286c58;
+  font-weight: 700;
+}
+
 .am-community-aside { display: grid; gap: 18px; }
 .am-aside-card { padding: 25px; border-radius: 22px; }
 .am-aside-card > span { font-size: 28px; }

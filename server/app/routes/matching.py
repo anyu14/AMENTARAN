@@ -3,7 +3,7 @@ from datetime import datetime
 from flask import Blueprint, request, jsonify
 from flask_jwt_extended import jwt_required, get_jwt_identity
 
-from app.extensions import db
+from app.extensions import db, socketio
 from app.models.usuario import Usuario
 from app.models.sesion import Sesion
 
@@ -116,5 +116,13 @@ def finalizar(sesion_id):
     sesion.estado = "finalizada"
     sesion.fecha_fin = datetime.utcnow()
     db.session.commit()
+
+    # Avisa inmediatamente a las dos personas conectadas para que
+    # ambas cierren la vista del chat sin tener que recargar la página.
+    socketio.emit(
+        "sesion_finalizada",
+        {"sesion_id": sesion.id},
+        room=f"sesion_{sesion.id}",
+    )
 
     return jsonify(sesion.to_dict()), 200
