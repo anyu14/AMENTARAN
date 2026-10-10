@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { apiFetch } from '../api/client.js'
 import { AuthContext } from './AuthContext.js'
 
@@ -12,11 +12,23 @@ export function AuthProvider({ children }) {
     const guardado = localStorage.getItem(CLAVE_USUARIO)
     return guardado ? JSON.parse(guardado) : null
   })
+  const [sesionCaducada, setSesionCaducada] = useState(false)
+
+  useEffect(() => {
+    function manejarSesionCaducada() {
+      setUsuario(null)
+      setSesionCaducada(true)
+    }
+
+    window.addEventListener('amentaran:sesion-caducada', manejarSesionCaducada)
+    return () => window.removeEventListener('amentaran:sesion-caducada', manejarSesionCaducada)
+  }, [])
 
   function guardarSesion(token, usuario) {
     localStorage.setItem(CLAVE_TOKEN, token)
     localStorage.setItem(CLAVE_USUARIO, JSON.stringify(usuario))
     setUsuario(usuario)
+    setSesionCaducada(false)
   }
 
   async function login(email, password) {
@@ -41,9 +53,14 @@ export function AuthProvider({ children }) {
     localStorage.removeItem(CLAVE_TOKEN)
     localStorage.removeItem(CLAVE_USUARIO)
     setUsuario(null)
+    setSesionCaducada(false)
   }
 
-  const value = { usuario, login, registro, logout }
+  function limpiarAvisoSesion() {
+    setSesionCaducada(false)
+  }
+
+  const value = { usuario, login, registro, logout, sesionCaducada, limpiarAvisoSesion }
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }

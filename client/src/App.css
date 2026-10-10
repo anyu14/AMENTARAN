@@ -2841,6 +2841,24 @@
   font-weight: 700;
 }
 
+.am-session-expired {
+  position: relative;
+  z-index: 90;
+  padding: 12px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: #fff3df;
+  color: #704b19;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.am-session-expired a { color: var(--am-violet-dark); font-weight: 900; }
+.am-session-expired button { position: absolute; right: 18px; border: 0; background: transparent; color: #704b19; font-size: 23px; cursor: pointer; }
+
 .am-community-aside { display: grid; gap: 18px; }
 .am-aside-card { padding: 25px; border-radius: 22px; }
 .am-aside-card > span { font-size: 28px; }

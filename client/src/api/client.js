@@ -29,11 +29,23 @@ export async function apiFetch(path, { method = "GET", body } = {}) {
   const datos = await respuesta.json().catch(() => ({}))
 
   if (!respuesta.ok) {
+    // Si una petición autenticada recibe 401, la sesión guardada ya
+    // no es válida (por ejemplo, porque el JWT caducó). Limpiamos los
+    // datos locales y avisamos al AuthProvider para actualizar toda la UI.
+    if (respuesta.status === 401 && token) {
+      localStorage.removeItem("amentaran_token")
+      localStorage.removeItem("amentaran_usuario")
+      window.dispatchEvent(new Event("amentaran:sesion-caducada"))
+    }
+
     // El backend siempre manda { error: "mensaje" } cuando algo falla.
     // Se adjunta el código de estado HTTP al error para que el código
     // que llama pueda distinguir casos específicos (por ejemplo, para
     // mostrar un mensaje traducido en vez del texto fijo del backend).
-    const error = new Error(datos.error || "Ha ocurrido un error inesperado.")
+    const mensaje = respuesta.status === 401 && token
+      ? "Tu sesión ha caducado. Vuelve a iniciar sesión."
+      : datos.error || "Ha ocurrido un error inesperado."
+    const error = new Error(mensaje)
     error.status = respuesta.status
     throw error
   }

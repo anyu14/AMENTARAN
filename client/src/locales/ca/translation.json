@@ -128,7 +128,10 @@
     "login_titulo": "Iniciar sessió",
     "login_boton": "Entrar",
     "login_enlace_registro": "No tens compte? Registra't",
-    "cargando": "Un moment..."
+    "cargando": "Un moment...",
+    "sesion_caducada": "La teva sessió ha caducat per seguretat.",
+    "volver_login": "Tornar a iniciar sessió",
+    "cerrar_aviso": "Tancar l'avís"
   },
   "historias": {
     "titulo": "Històries",

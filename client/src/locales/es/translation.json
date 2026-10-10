@@ -124,7 +124,10 @@
     "login_titulo": "Iniciar sesión",
     "login_boton": "Entrar",
     "login_enlace_registro": "¿No tienes cuenta? Regístrate",
-    "cargando": "Un momento..."
+    "cargando": "Un momento...",
+    "sesion_caducada": "Tu sesión ha caducado por seguridad.",
+    "volver_login": "Volver a iniciar sesión",
+    "cerrar_aviso": "Cerrar aviso"
   },
   "historias": {
     "titulo": "Historias",
