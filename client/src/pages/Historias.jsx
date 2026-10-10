@@ -15,6 +15,8 @@ function Historias() {
   const [contenido, setContenido] = useState('')
   const [publicando, setPublicando] = useState(false)
   const [errorPublicar, setErrorPublicar] = useState('')
+  const [eliminandoId, setEliminandoId] = useState(null)
+  const [errorEliminar, setErrorEliminar] = useState('')
 
   // Estado del reporte de cada historia, por id: 'reportando', 'reportado',
   // o un mensaje de error. Así cada tarjeta reacciona de forma
@@ -73,6 +75,21 @@ function Historias() {
     }
   }
 
+  async function manejarEliminar(historiaId) {
+    if (!window.confirm(t('historias.confirmar_eliminar'))) return
+
+    setErrorEliminar('')
+    setEliminandoId(historiaId)
+    try {
+      await apiFetch(`/api/historias/${historiaId}`, { method: 'DELETE' })
+      setHistorias((actuales) => actuales.filter((historia) => historia.id !== historiaId))
+    } catch (err) {
+      setErrorEliminar(err.message || t('historias.error_eliminar'))
+    } finally {
+      setEliminandoId(null)
+    }
+  }
+
   const localeFecha = i18n.resolvedLanguage === 'ca' ? 'ca-ES' : 'es-ES'
 
   return (
@@ -117,6 +134,7 @@ function Historias() {
           )}
 
           <div className="am-feed-heading"><div><span aria-hidden="true" />{t('historias.feed_etiqueta')}</div><h2>{t('historias.feed_titulo')}</h2></div>
+          {errorEliminar && <p className="am-inline-error">{errorEliminar}</p>}
           {cargando && <div className="am-status-card">{t('historias.cargando')}</div>}
           {errorCarga && <div className="am-status-card am-status-card--error"><span aria-hidden="true">!</span><div><strong>{t('historias.error_titulo')}</strong><p>{errorCarga}</p><small>{t('historias.error_ayuda')}</small></div></div>}
           {!cargando && !errorCarga && historias.length === 0 && <div className="am-status-card">{t('historias.vacio')}</div>}
@@ -134,17 +152,30 @@ function Historias() {
 
             {usuario && (
               <div className="am-story-card__actions">
-                <button
-                  type="button"
-                  onClick={() => manejarReportar(historia.id)}
-                  disabled={reportando || yaReportado}
-                >
-                  {reportando
-                    ? t('historias.reportando')
-                    : yaReportado
-                      ? t('historias.reportado')
-                      : t('historias.boton_reportar')}
-                </button>
+                {historia.es_mia ? (
+                  <button
+                    className="am-story-delete"
+                    type="button"
+                    onClick={() => manejarEliminar(historia.id)}
+                    disabled={eliminandoId === historia.id}
+                  >
+                    {eliminandoId === historia.id
+                      ? t('historias.eliminando')
+                      : t('historias.boton_eliminar')}
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => manejarReportar(historia.id)}
+                    disabled={reportando || yaReportado}
+                  >
+                    {reportando
+                      ? t('historias.reportando')
+                      : yaReportado
+                        ? t('historias.reportado')
+                        : t('historias.boton_reportar')}
+                  </button>
+                )}
                 {errorReporte && (
                   <small className="am-inline-error">{errorReporte}</small>
                 )}

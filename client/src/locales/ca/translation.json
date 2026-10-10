@@ -168,7 +168,11 @@
     "boton_reportar": "Reportar",
     "reportando": "Reportant...",
     "reportado": "Reportat",
-    "error_reportar": "No s'ha pogut reportar la història."
+    "error_reportar": "No s'ha pogut reportar la història.",
+    "boton_eliminar": "Eliminar la meva història",
+    "eliminando": "Eliminant...",
+    "confirmar_eliminar": "Vols eliminar aquesta història? Aquesta acció no es pot desfer.",
+    "error_eliminar": "No s'ha pogut eliminar la història. Torna-ho a provar."
   },
   "moderacion": {
     "titulo": "Moderació d'històries",
