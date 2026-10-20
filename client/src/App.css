@@ -3299,3 +3299,293 @@
     padding: 22px;
   }
 }
+
+
+/* ==================================================
+   PÁGINA SEGURIDAD — PRIVACIDAD, NORMAS Y EMERGENCIAS
+================================================== */
+
+.am-safety-page {
+  overflow: hidden;
+  background: var(--am-cream);
+  color: var(--am-ink);
+}
+
+.am-safety-hero {
+  padding-top: 85px;
+  padding-bottom: 80px;
+  text-align: center;
+}
+
+.am-safety-eyebrow {
+  display: inline-block;
+  color: var(--am-violet);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.am-safety-hero h1 {
+  max-width: 850px;
+  margin: 16px auto 22px;
+  font-size: clamp(43px, 6vw, 74px);
+  line-height: 1;
+  letter-spacing: -0.055em;
+}
+
+.am-safety-hero h1 em {
+  display: block;
+  color: var(--am-violet);
+  font-family: Georgia, serif;
+  font-weight: 500;
+}
+
+.am-safety-hero > p {
+  max-width: 720px;
+  margin: auto;
+  color: var(--am-muted);
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.am-rules {
+  padding-bottom: 90px;
+}
+
+.am-safety-heading {
+  max-width: 650px;
+  margin-bottom: 36px;
+}
+
+.am-safety-heading h2,
+.am-privacy-content h2,
+.am-emergency-heading h2 {
+  margin: 12px 0 0;
+  font-size: clamp(31px, 4vw, 48px);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
+
+.am-rules-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.am-rule-card {
+  position: relative;
+  min-height: 205px;
+  padding: 30px;
+  border: 1px solid var(--am-line);
+  border-radius: 25px;
+  background: white;
+  box-shadow: var(--am-shadow-soft);
+  box-sizing: border-box;
+}
+
+.am-rule-card > span {
+  color: var(--am-coral);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.am-rule-card h3 {
+  margin: 18px 0 10px;
+  font-size: 22px;
+}
+
+.am-rule-card p {
+  margin: 0;
+  color: var(--am-muted);
+  line-height: 1.65;
+}
+
+.am-privacy-section {
+  padding: 75px 0;
+  background: var(--am-lilac);
+}
+
+.am-privacy-content {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(40px, 8vw, 100px);
+  align-items: center;
+}
+
+.am-privacy-list {
+  padding: 30px;
+  border-radius: 25px;
+  background: white;
+  box-shadow: var(--am-shadow-soft);
+}
+
+.am-privacy-list p {
+  margin: 0;
+  padding: 17px 0;
+  color: var(--am-muted);
+  line-height: 1.55;
+}
+
+.am-privacy-list p + p {
+  border-top: 1px solid var(--am-line);
+}
+
+.am-privacy-list p::first-letter {
+  color: var(--am-mint-dark);
+}
+
+.am-emergency {
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+
+.am-emergency-heading {
+  max-width: 720px;
+  margin-bottom: 38px;
+}
+
+.am-emergency-heading > p {
+  margin: 18px 0 0;
+  color: var(--am-muted);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.am-emergency-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.am-emergency-card {
+  padding: 32px;
+  border: 1px solid #cfe8df;
+  border-radius: 26px;
+  background: #eef8f4;
+  box-sizing: border-box;
+}
+
+.am-emergency-card--urgent {
+  border-color: #f2c8c1;
+  background: #fff4f1;
+}
+
+.am-emergency-card > span {
+  display: block;
+  color: var(--am-muted);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.am-emergency-card strong {
+  display: block;
+  margin: 10px 0;
+  color: var(--am-violet-dark);
+  font-size: 58px;
+  line-height: 1;
+}
+
+.am-emergency-card--urgent strong {
+  color: #b14c41;
+}
+
+.am-emergency-card p {
+  min-height: 78px;
+  margin: 0 0 22px;
+  color: var(--am-muted);
+  line-height: 1.6;
+}
+
+.am-emergency-card a {
+  display: inline-flex;
+  min-height: 44px;
+  padding: 0 22px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--am-violet);
+  color: white;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.am-emergency-card--urgent a {
+  background: #b14c41;
+}
+
+.am-emergency-note {
+  max-width: 760px;
+  margin: 26px 0 22px;
+  color: var(--am-muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+@media (max-width: 850px) {
+  .am-rules-grid,
+  .am-emergency-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .am-privacy-content {
+    grid-template-columns: 1fr;
+  }
+
+  .am-emergency-card p {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .am-safety-hero,
+  .am-rules,
+  .am-emergency {
+    width: min(100% - 32px, 1160px);
+  }
+
+  .am-safety-hero {
+    padding-top: 50px;
+    padding-bottom: 60px;
+  }
+
+  .am-safety-hero h1 {
+    font-size: 43px;
+  }
+
+  .am-safety-hero > p {
+    font-size: 16px;
+  }
+
+  .am-rules {
+    padding-bottom: 65px;
+  }
+
+  .am-rule-card,
+  .am-emergency-card {
+    padding: 24px;
+  }
+
+  .am-privacy-section {
+    padding: 60px 0;
+  }
+
+  .am-privacy-content {
+    width: min(100% - 32px, 1160px);
+  }
+
+  .am-privacy-list {
+    padding: 22px;
+  }
+
+  .am-emergency {
+    padding-top: 65px;
+    padding-bottom: 65px;
+  }
+
+  .am-emergency-card strong {
+    font-size: 48px;
+  }
+}

@@ -32,7 +32,7 @@ function Nosotros() {
           <span className="am-about-eyebrow">{t('nosotros.etiqueta')}</span>
 
           <h1 key={i18n.resolvedLanguage}>
-            {t('nosotros.titulo')}
+            <span>{t('nosotros.titulo')}</span>
             <em>{t('nosotros.titulo_destacado')}</em>
           </h1>
 

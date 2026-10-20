@@ -75,7 +75,7 @@ function Inicio() {
 
       <section className="am-safety am-page-width">
         <div className="am-safety__symbol" aria-hidden="true"><Icon name="heart" size={38} /></div>
-        <div><span>{t('inicio.figma_cuidado_etiqueta')}</span><h2>{t('inicio.figma_cuidado_titulo')}</h2><p>{t('inicio.figma_cuidado_texto')}</p><Link to="/nosotros">{t('inicio.figma_normas')} <Icon name="arrow" size={17} /></Link></div>
+        <div><span>{t('inicio.figma_cuidado_etiqueta')}</span><h2>{t('inicio.figma_cuidado_titulo')}</h2><p>{t('inicio.figma_cuidado_texto')}</p><Link to="/seguridad">{t('inicio.figma_normas')} <Icon name="arrow" size={17} /></Link></div>
       </section>
     </main>
   )
