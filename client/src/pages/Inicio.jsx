@@ -18,7 +18,7 @@ function Inicio() {
   const { t } = useTranslation()
   const opciones = [
     { numero: '01', clase: 'violeta', icono: 'heart', titulo: t('inicio.hablar_titulo'), texto: t('inicio.hablar_texto'), ruta: '/historias' },
-    { numero: '02', clase: 'menta', icono: 'book', titulo: t('inicio.recursos_titulo'), texto: t('inicio.recursos_texto'), ruta: '/apoyo' },
+    { numero: '02', clase: 'menta', icono: 'book', titulo: t('inicio.recursos_titulo'), texto: t('inicio.recursos_texto'), ruta: '/recursos' },
     { numero: '03', clase: 'coral', icono: 'message', titulo: t('inicio.escuchar_titulo'), texto: t('inicio.escuchar_texto'), ruta: '/conectar' },
   ]
 
@@ -38,7 +38,7 @@ function Inicio() {
 
           <div className="am-hero__actions">
             <Link className="am-btn am-btn--primary" to="/historias"><Icon name="community" size={18} />{t('inicio.figma_boton_comunidad')}</Link>
-            <Link className="am-btn am-btn--secondary" to="/apoyo"><Icon name="book" size={18} />{t('inicio.figma_boton_recursos')}</Link>
+            <Link className="am-btn am-btn--secondary" to="/recursos"><Icon name="book" size={18} />{t('inicio.figma_boton_recursos')}</Link>
           </div>
 
           <div className="am-trust-row">

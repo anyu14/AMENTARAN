@@ -85,11 +85,6 @@
       "texto": "Lee experiencias de otras personas o comparte tu historia de forma anónima.",
       "boton": "Ver historias"
     },
-    "tarjeta_ia": {
-      "titulo": "Amentaran IA",
-      "texto": "Habla con nuestra inteligencia artificial cuando necesites expresarte u orientarte.",
-      "boton": "Próximamente"
-    },
     "talleres": {
       "etiqueta": "Aprender, compartir, crecer",
       "titulo": "Talleres y actividades",
@@ -98,7 +93,12 @@
       "proximamente_texto": "Aquí publicaremos los nuevos talleres y encuentros de la comunidad."
     },
     "comunidad_frase": "Aquí estamos para ti, siempre que lo necesites.",
-    "comunidad_titulo": "Amentaran es comunidad, es apoyo, es comprensión."
+    "comunidad_titulo": "Amentaran es comunidad, es apoyo, es comprensión.",
+    "tarjeta_recursos": {
+      "titulo": "Recursos de bienestar",
+      "texto": "Consulta guías sencillas para momentos de ansiedad, crisis emocional, soledad y autocuidado.",
+      "boton": "Explorar recursos"
+    }
   },
   "auth": {
     "email": "Email",
@@ -279,5 +279,84 @@
     "llamar_024": "Llamar al 024",
     "aviso_profesional": "El 024 no sustituye una consulta presencial con profesionales sanitarios cuando sea necesaria.",
     "ver_recursos": "Ver más recursos de apoyo"
+  },
+  "recursos": {
+    "etiqueta": "Recursos para tu bienestar",
+    "titulo": "Pequeños pasos para ",
+    "titulo_destacado": "momentos difíciles.",
+    "descripcion": "Encuentra información sencilla y ejercicios prácticos para comprender mejor lo que sientes y decidir cuál puede ser tu siguiente paso.",
+    "leer": "Leer guía",
+    "ayuda_etiqueta": "No tienes que hacerlo a solas",
+    "ayuda_titulo": "¿Necesitas ayuda inmediata?",
+    "ayuda_texto": "Consulta los servicios de emergencia y las líneas de atención disponibles en España.",
+    "ayuda_boton": "Ver ayuda inmediata",
+    "ansiedad": {
+      "categoria": "Ansiedad y estrés",
+      "titulo": "Cuando todo parece demasiado",
+      "resumen": "Algunas acciones sencillas pueden ayudarte a recuperar calma y ordenar lo que estás sintiendo.",
+      "introduccion": "La ansiedad puede sentirse como preocupación intensa, tensión, pensamientos acelerados o malestar físico. Estas acciones no sustituyen la atención profesional, pero pueden ayudarte a atravesar el momento.",
+      "pasos_titulo": "Qué puedes hacer ahora",
+      "paso_1_titulo": "Haz una pausa",
+      "paso_1_texto": "Si puedes, detente unos minutos. Apoya los pies en el suelo y observa cómo se siente tu cuerpo sin exigirte cambiarlo de inmediato.",
+      "paso_2_titulo": "Respira con suavidad",
+      "paso_2_texto": "Inhala sin forzar y deja que la exhalación sea un poco más larga. Repite varias veces a un ritmo cómodo.",
+      "paso_3_titulo": "Vuelve al presente",
+      "paso_3_texto": "Mira a tu alrededor y nombra cosas que puedes ver, escuchar y tocar. Esto puede ayudarte a dirigir la atención al momento actual.",
+      "paso_4_titulo": "Busca apoyo",
+      "paso_4_texto": "Habla con alguien de confianza. Si la ansiedad es frecuente, intensa o limita tu vida diaria, consulta con un profesional sanitario."
+    },
+    "crisis": {
+      "categoria": "Crisis emocional",
+      "titulo": "Cuando sientes que no puedes más",
+      "resumen": "Prioriza tu seguridad y busca compañía o ayuda profesional lo antes posible.",
+      "introduccion": "Una crisis emocional puede hacer que resulte difícil pensar con claridad. En ese momento, lo más importante es mantenerte a salvo y contactar con otra persona.",
+      "pasos_titulo": "Prioriza tu seguridad",
+      "paso_1_titulo": "Aléjate del peligro",
+      "paso_1_texto": "Ve a un lugar donde estés acompañado y aparta cualquier objeto o situación con la que puedas hacerte daño.",
+      "paso_2_titulo": "Contacta con alguien",
+      "paso_2_texto": "Llama o escribe a una persona de confianza y dile claramente que necesitas que se quede contigo o te ayude.",
+      "paso_3_titulo": "Pide ayuda profesional",
+      "paso_3_texto": "En España puedes llamar al 024 ante ideación o conducta suicida. Si existe peligro inmediato, llama al 112.",
+      "paso_4_titulo": "No atravieses la crisis a solas",
+      "paso_4_texto": "Permanece acompañado hasta recibir ayuda. Evita tomar decisiones importantes mientras la intensidad emocional sea muy alta."
+    },
+    "soledad": {
+      "categoria": "Soledad y conexión",
+      "titulo": "Cuando te sientes solo",
+      "resumen": "Sentirse solo no significa que tengas que afrontar todo sin compañía.",
+      "introduccion": "La soledad puede aparecer incluso cuando hay personas alrededor. Reconocerla y dar un pequeño paso hacia la conexión puede aliviar parte de su peso.",
+      "pasos_titulo": "Acércate poco a poco",
+      "paso_1_titulo": "Ponle nombre a lo que sientes",
+      "paso_1_texto": "Reconocer la soledad sin juzgarte puede ayudarte a entender qué tipo de compañía o apoyo necesitas.",
+      "paso_2_titulo": "Elige un contacto pequeño",
+      "paso_2_texto": "Envía un mensaje breve, llama a alguien o comparte un momento cotidiano. No hace falta contar todo de una vez.",
+      "paso_3_titulo": "Busca espacios compartidos",
+      "paso_3_texto": "Participar en una actividad, grupo o comunidad relacionada con tus intereses puede facilitar conexiones graduales.",
+      "paso_4_titulo": "Pide ayuda si persiste",
+      "paso_4_texto": "Si la soledad afecta de forma continuada a tu ánimo, sueño o vida diaria, considera hablar con un profesional."
+    },
+    "autocuidado": {
+      "categoria": "Autocuidado",
+      "titulo": "Cuidarte sin exigirte perfección",
+      "resumen": "El autocuidado también consiste en atender necesidades básicas y pedir ayuda cuando la necesitas.",
+      "introduccion": "Cuidarse no significa estar bien todo el tiempo. Se trata de reconocer tus necesidades y construir hábitos realistas que protejan tu bienestar.",
+      "pasos_titulo": "Construye una base sencilla",
+      "paso_1_titulo": "Atiende lo básico",
+      "paso_1_texto": "Intenta descansar, hidratarte y comer con cierta regularidad. Las necesidades físicas también influyen en cómo te sientes.",
+      "paso_2_titulo": "Reduce la exigencia",
+      "paso_2_texto": "Elige una o dos tareas posibles para hoy. Dividir una tarea grande en pasos pequeños puede hacerla más manejable.",
+      "paso_3_titulo": "Reserva un momento para ti",
+      "paso_3_texto": "Caminar, descansar, escuchar música o realizar una actividad agradable puede ayudarte a recuperar energía.",
+      "paso_4_titulo": "Mantén la conexión",
+      "paso_4_texto": "Comparte cómo estás con alguien de confianza y busca ayuda profesional cuando notes que tus recursos no son suficientes."
+    }
+  },
+  "recurso_detalle": {
+    "volver": "Volver a recursos",
+    "recordatorio_titulo": "Recuerda",
+    "recordatorio_texto": "No tienes que hacerlo todo de una vez. Un paso pequeño también cuenta.",
+    "profesional_titulo": "Cuándo buscar ayuda",
+    "profesional_texto": "Si el malestar es intenso, persiste o afecta a tu vida diaria, consulta con un profesional sanitario. Ante un peligro inmediato, llama al 112.",
+    "profesional_boton": "Ver ayuda y emergencias"
   }
 }

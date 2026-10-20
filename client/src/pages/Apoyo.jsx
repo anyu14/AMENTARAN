@@ -8,7 +8,7 @@ function Apoyo() {
     { id: "hablar", icono: "💬", ruta: "/conectar" },
     { id: "escuchar", icono: "♡", ruta: "/conectar" },
     { id: "historias", icono: "📖", ruta: "/historias" },
-    { id: "ia", icono: "✨", ruta: null },
+    { id: "recursos", icono: "✨", ruta: "/recursos" },
   ];
 
   return (

@@ -15,10 +15,18 @@ i18n
       es: { translation: es },
       ca: { translation: ca },
     },
+    supportedLngs: ['es', 'ca'],
     fallbackLng: 'es', // si el idioma detectado no es es/ca, se usa castellano
     interpolation: {
       escapeValue: false, // React ya protege contra XSS, no hace falta aquí
     },
   })
+
+const actualizarIdiomaDocumento = (idioma) => {
+  document.documentElement.lang = idioma === 'ca' ? 'ca' : 'es'
+}
+
+actualizarIdiomaDocumento(i18n.resolvedLanguage)
+i18n.on('languageChanged', actualizarIdiomaDocumento)
 
 export default i18n

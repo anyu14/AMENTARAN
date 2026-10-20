@@ -6,6 +6,8 @@ import Inicio from './pages/Inicio.jsx'
 import Apoyo from './pages/Apoyo.jsx'
 import Nosotros from './pages/Nosotros.jsx'
 import Seguridad from './pages/Seguridad.jsx'
+import Recursos from './pages/Recursos.jsx'
+import RecursoDetalle from './pages/RecursoDetalle.jsx'
 import Registro from './pages/Registro.jsx'
 import Login from './pages/Login.jsx'
 import Historias from './pages/Historias.jsx'
@@ -14,7 +16,7 @@ import Moderacion from './pages/Moderacion.jsx'
 import { useAuth } from './context/useAuth.js'
 
 function App() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { sesionCaducada, limpiarAvisoSesion } = useAuth()
 
   return (
@@ -29,11 +31,13 @@ function App() {
         </div>
       )}
 
-      <Routes>
+      <Routes key={i18n.resolvedLanguage}>
         <Route path="/" element={<Inicio />} />
         <Route path="/apoyo" element={<Apoyo />} />
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/seguridad" element={<Seguridad />} />
+        <Route path="/recursos" element={<Recursos />} />
+        <Route path="/recursos/:slug" element={<RecursoDetalle />} />
         <Route path="/registro" element={<Registro />} />
         <Route path="/login" element={<Login />} />
         <Route path="/historias" element={<Historias />} />

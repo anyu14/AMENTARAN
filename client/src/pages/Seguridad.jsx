@@ -107,7 +107,7 @@ function Seguridad() {
           {t('seguridad.aviso_profesional')}
         </p>
 
-        <Link className="am-btn am-btn--secondary" to="/apoyo">
+        <Link className="am-btn am-btn--secondary" to="/recursos">
           {t('seguridad.ver_recursos')}
         </Link>
       </section>

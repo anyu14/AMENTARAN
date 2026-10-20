@@ -85,11 +85,6 @@
       "texto": "Llegeix experiències d'altres persones o comparteix la teva història de forma anònima.",
       "boton": "Veure històries"
     },
-    "tarjeta_ia": {
-      "titulo": "✨ Amentaran IA",
-      "texto": "Parla amb la nostra intel·ligència artificial quan necessitis expressar-te o orientar-te.",
-      "boton": "Pròximament"
-    },
     "talleres": {
       "etiqueta": "Aprendre, compartir, créixer",
       "titulo": "Tallers i activitats",
@@ -98,7 +93,12 @@
       "proximamente_texto": "Aquí publicarem els nous tallers i trobades de la comunitat."
     },
     "comunidad_frase": "Aquí som per a tu, sempre que ho necessitis.",
-    "comunidad_titulo": "Amentaran és comunitat, és suport, és comprensió."
+    "comunidad_titulo": "Amentaran és comunitat, és suport, és comprensió.",
+    "tarjeta_recursos": {
+      "titulo": "Recursos de benestar",
+      "texto": "Consulta guies senzilles per a moments d'ansietat, crisi emocional, solitud i autocura.",
+      "boton": "Explorar recursos"
+    }
   },
   "nosotros": {
     "etiqueta": "Coneix Amentaran",
@@ -279,5 +279,84 @@
     "llamar_024": "Trucar al 024",
     "aviso_profesional": "El 024 no substitueix una consulta presencial amb professionals sanitaris quan sigui necessària.",
     "ver_recursos": "Veure més recursos de suport"
+  },
+  "recursos": {
+    "etiqueta": "Recursos per al teu benestar",
+    "titulo": "Petits passos per a ",
+    "titulo_destacado": "moments difícils.",
+    "descripcion": "Troba informació senzilla i exercicis pràctics per comprendre millor el que sents i decidir quin pot ser el teu següent pas.",
+    "leer": "Llegir la guia",
+    "ayuda_etiqueta": "No ho has de fer a soles",
+    "ayuda_titulo": "Necessites ajuda immediata?",
+    "ayuda_texto": "Consulta els serveis d'emergència i les línies d'atenció disponibles a Espanya.",
+    "ayuda_boton": "Veure ajuda immediata",
+    "ansiedad": {
+      "categoria": "Ansietat i estrès",
+      "titulo": "Quan tot sembla massa",
+      "resumen": "Algunes accions senzilles poden ajudar-te a recuperar la calma i ordenar el que estàs sentint.",
+      "introduccion": "L'ansietat es pot sentir com una preocupació intensa, tensió, pensaments accelerats o malestar físic. Aquestes accions no substitueixen l'atenció professional, però poden ajudar-te a travessar el moment.",
+      "pasos_titulo": "Què pots fer ara",
+      "paso_1_titulo": "Fes una pausa",
+      "paso_1_texto": "Si pots, atura't uns minuts. Recolza els peus a terra i observa com se sent el teu cos sense exigir-te canviar-ho immediatament.",
+      "paso_2_titulo": "Respira amb suavitat",
+      "paso_2_texto": "Inspira sense forçar i deixa que l'expiració sigui una mica més llarga. Repeteix-ho diverses vegades a un ritme còmode.",
+      "paso_3_titulo": "Torna al present",
+      "paso_3_texto": "Mira al teu voltant i anomena coses que pots veure, escoltar i tocar. Això pot ajudar-te a dirigir l'atenció al moment actual.",
+      "paso_4_titulo": "Busca suport",
+      "paso_4_texto": "Parla amb algú de confiança. Si l'ansietat és freqüent, intensa o limita la teva vida diària, consulta amb un professional sanitari."
+    },
+    "crisis": {
+      "categoria": "Crisi emocional",
+      "titulo": "Quan sents que no pots més",
+      "resumen": "Prioritza la teva seguretat i busca companyia o ajuda professional tan aviat com sigui possible.",
+      "introduccion": "Una crisi emocional pot fer que sigui difícil pensar amb claredat. En aquest moment, el més important és mantenir-te fora de perill i contactar amb una altra persona.",
+      "pasos_titulo": "Prioritza la teva seguretat",
+      "paso_1_titulo": "Allunya't del perill",
+      "paso_1_texto": "Ves a un lloc on estiguis acompanyat i aparta qualsevol objecte o situació amb què et puguis fer mal.",
+      "paso_2_titulo": "Contacta amb algú",
+      "paso_2_texto": "Truca o escriu a una persona de confiança i digues-li clarament que necessites que es quedi amb tu o t'ajudi.",
+      "paso_3_titulo": "Demana ajuda professional",
+      "paso_3_texto": "A Espanya pots trucar al 024 davant d'ideació o conducta suïcida. Si hi ha perill immediat, truca al 112.",
+      "paso_4_titulo": "No passis la crisi a soles",
+      "paso_4_texto": "Mantén-te acompanyat fins a rebre ajuda. Evita prendre decisions importants mentre la intensitat emocional sigui molt alta."
+    },
+    "soledad": {
+      "categoria": "Solitud i connexió",
+      "titulo": "Quan et sents sol",
+      "resumen": "Sentir-se sol no significa que hagis d'afrontar-ho tot sense companyia.",
+      "introduccion": "La solitud pot aparèixer fins i tot quan hi ha persones al voltant. Reconèixer-la i fer un petit pas cap a la connexió pot alleujar part del seu pes.",
+      "pasos_titulo": "Apropa't a poc a poc",
+      "paso_1_titulo": "Posa nom al que sents",
+      "paso_1_texto": "Reconèixer la solitud sense jutjar-te pot ajudar-te a entendre quin tipus de companyia o suport necessites.",
+      "paso_2_titulo": "Tria un contacte petit",
+      "paso_2_texto": "Envia un missatge breu, truca a algú o comparteix un moment quotidià. No cal explicar-ho tot de cop.",
+      "paso_3_titulo": "Busca espais compartits",
+      "paso_3_texto": "Participar en una activitat, grup o comunitat relacionada amb els teus interessos pot facilitar connexions graduals.",
+      "paso_4_titulo": "Demana ajuda si persisteix",
+      "paso_4_texto": "Si la solitud afecta de manera continuada el teu estat d'ànim, el son o la vida diària, considera parlar amb un professional."
+    },
+    "autocuidado": {
+      "categoria": "Autocura",
+      "titulo": "Cuidar-te sense exigir-te perfecció",
+      "resumen": "L'autocura també consisteix a atendre necessitats bàsiques i demanar ajuda quan la necessites.",
+      "introduccion": "Cuidar-se no significa estar bé tot el temps. Es tracta de reconèixer les teves necessitats i construir hàbits realistes que protegeixin el teu benestar.",
+      "pasos_titulo": "Construeix una base senzilla",
+      "paso_1_titulo": "Atén el més bàsic",
+      "paso_1_texto": "Intenta descansar, hidratar-te i menjar amb certa regularitat. Les necessitats físiques també influeixen en com et sents.",
+      "paso_2_titulo": "Redueix l'exigència",
+      "paso_2_texto": "Tria una o dues tasques possibles per a avui. Dividir una tasca gran en passos petits pot fer-la més gestionable.",
+      "paso_3_titulo": "Reserva un moment per a tu",
+      "paso_3_texto": "Caminar, descansar, escoltar música o fer una activitat agradable pot ajudar-te a recuperar energia.",
+      "paso_4_titulo": "Mantén la connexió",
+      "paso_4_texto": "Comparteix com estàs amb algú de confiança i busca ajuda professional quan notis que els teus recursos no són suficients."
+    }
+  },
+  "recurso_detalle": {
+    "volver": "Tornar als recursos",
+    "recordatorio_titulo": "Recorda",
+    "recordatorio_texto": "No ho has de fer tot de cop. Un petit pas també compta.",
+    "profesional_titulo": "Quan buscar ajuda",
+    "profesional_texto": "Si el malestar és intens, persisteix o afecta la teva vida diària, consulta amb un professional sanitari. Davant d'un perill immediat, truca al 112.",
+    "profesional_boton": "Veure ajuda i emergències"
   }
 }
