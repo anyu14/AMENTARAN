@@ -2945,3 +2945,357 @@
   .am-connect-actions { flex-direction: column; }
   .am-connect-actions .am-btn { justify-content: center; }
 }
+
+
+/* ==================================================
+   PÁGINA NOSOTROS — DISEÑO COMPLETO
+================================================== */
+
+.am-about {
+  overflow: hidden;
+  background: var(--am-cream);
+  color: var(--am-ink);
+}
+
+.am-about-hero {
+  min-height: 570px;
+  padding-top: 75px;
+  padding-bottom: 75px;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(45px, 8vw, 100px);
+  align-items: center;
+}
+
+.am-about-eyebrow {
+  display: inline-block;
+  color: var(--am-violet);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.am-about-hero__copy h1 {
+  max-width: 670px;
+  margin: 15px 0 22px;
+  font-size: clamp(43px, 6vw, 76px);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.am-about-hero__copy h1 em {
+  display: block;
+  color: var(--am-violet);
+  font-family: Georgia, serif;
+  font-weight: 500;
+}
+
+.am-about-hero__copy > p {
+  max-width: 620px;
+  margin: 0;
+  color: var(--am-muted);
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.am-about-actions {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.am-about-hero__visual {
+  position: relative;
+  min-height: 390px;
+}
+
+.am-about-circle {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  box-shadow: var(--am-shadow);
+}
+
+.am-about-circle--large {
+  width: 300px;
+  height: 300px;
+  top: 20px;
+  right: 35px;
+  background: linear-gradient(145deg, var(--am-violet), #9583df);
+  color: white;
+  font-family: Georgia, serif;
+  font-size: 130px;
+}
+
+.am-about-circle--small {
+  width: 120px;
+  height: 120px;
+  bottom: 22px;
+  left: 18px;
+  background: var(--am-mint);
+  color: var(--am-mint-dark);
+  font-size: 50px;
+}
+
+.am-about-note {
+  position: absolute;
+  max-width: 215px;
+  right: 0;
+  bottom: 25px;
+  padding: 18px 20px;
+  border-radius: 18px;
+  background: white;
+  box-shadow: var(--am-shadow-soft);
+  color: var(--am-ink);
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.5;
+  transform: rotate(-2deg);
+}
+
+.am-about-mission {
+  padding: 75px 0;
+  background: white;
+}
+
+.am-about-mission__inner {
+  display: grid;
+  grid-template-columns: 70px 1fr 1fr;
+  gap: 38px;
+  align-items: start;
+}
+
+.am-about-section-number {
+  color: var(--am-coral);
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.am-about-mission h2,
+.am-about-heading h2 {
+  margin: 12px 0 0;
+  font-size: clamp(31px, 4vw, 48px);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
+
+.am-about-mission p {
+  margin: 25px 0 0;
+  color: var(--am-muted);
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.am-about-values {
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+
+.am-about-heading {
+  max-width: 650px;
+  margin-bottom: 38px;
+}
+
+.am-about-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.am-about-card {
+  min-height: 240px;
+  padding: 30px;
+  border: 1px solid var(--am-line);
+  border-radius: 26px;
+  background: white;
+  box-shadow: var(--am-shadow-soft);
+  box-sizing: border-box;
+}
+
+.am-about-card > span {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 17px;
+  font-size: 25px;
+}
+
+.am-about-card--violeta > span {
+  background: var(--am-lilac);
+  color: var(--am-violet);
+}
+
+.am-about-card--menta > span {
+  background: var(--am-mint);
+  color: var(--am-mint-dark);
+}
+
+.am-about-card--coral > span {
+  background: var(--am-peach);
+  color: #b95549;
+}
+
+.am-about-card h3 {
+  margin: 22px 0 10px;
+  font-size: 22px;
+}
+
+.am-about-card p {
+  margin: 0;
+  color: var(--am-muted);
+  line-height: 1.65;
+}
+
+.am-about-disclaimer {
+  margin-bottom: 90px;
+  padding: 28px 32px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  border: 1px solid #cfe8df;
+  border-radius: 24px;
+  background: #eef8f4;
+  box-sizing: border-box;
+}
+
+.am-about-disclaimer > span {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--am-mint);
+  color: var(--am-mint-dark);
+  font-family: Georgia, serif;
+  font-size: 23px;
+  font-weight: 800;
+}
+
+.am-about-disclaimer h2 {
+  margin: 0 0 7px;
+  font-size: 19px;
+}
+
+.am-about-disclaimer p {
+  margin: 0;
+  color: var(--am-muted);
+  line-height: 1.65;
+}
+
+@media (max-width: 850px) {
+  .am-about-hero {
+    grid-template-columns: 1fr;
+    padding-top: 55px;
+  }
+
+  .am-about-hero__visual {
+    min-height: 330px;
+  }
+
+  .am-about-circle--large {
+    width: 250px;
+    height: 250px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-42%);
+    font-size: 105px;
+  }
+
+  .am-about-mission__inner {
+    grid-template-columns: 45px 1fr;
+  }
+
+  .am-about-mission__inner > p {
+    grid-column: 2;
+  }
+
+  .am-about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .am-about-card {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .am-about-hero {
+    width: min(100% - 32px, 1160px);
+    min-height: auto;
+    padding-top: 45px;
+    padding-bottom: 55px;
+  }
+
+  .am-about-hero__copy h1 {
+    font-size: 43px;
+  }
+
+  .am-about-hero__copy > p {
+    font-size: 16px;
+  }
+
+  .am-about-actions {
+    flex-direction: column;
+  }
+
+  .am-about-actions .am-btn {
+    justify-content: center;
+  }
+
+  .am-about-hero__visual {
+    min-height: 290px;
+  }
+
+  .am-about-circle--large {
+    width: 210px;
+    height: 210px;
+    font-size: 88px;
+  }
+
+  .am-about-circle--small {
+    width: 90px;
+    height: 90px;
+    left: 0;
+    bottom: 10px;
+  }
+
+  .am-about-note {
+    max-width: 155px;
+    right: 0;
+    bottom: 0;
+    padding: 14px;
+    font-size: 12px;
+  }
+
+  .am-about-mission {
+    padding: 55px 0;
+  }
+
+  .am-about-mission__inner {
+    width: min(100% - 32px, 1160px);
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .am-about-mission__inner > p {
+    grid-column: 1;
+    margin-top: 5px;
+  }
+
+  .am-about-values {
+    width: min(100% - 32px, 1160px);
+    padding-top: 65px;
+    padding-bottom: 65px;
+  }
+
+  .am-about-disclaimer {
+    width: min(100% - 32px, 1160px);
+    margin-bottom: 65px;
+    padding: 22px;
+  }
+}
