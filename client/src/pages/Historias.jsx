@@ -17,6 +17,7 @@ function Historias() {
   const [errorPublicar, setErrorPublicar] = useState('')
   const [eliminandoId, setEliminandoId] = useState(null)
   const [errorEliminar, setErrorEliminar] = useState('')
+  const [historiaPendienteEliminar, setHistoriaPendienteEliminar] = useState(null)
 
   // Estado del reporte de cada historia, por id: 'reportando', 'reportado',
   // o un mensaje de error. Así cada tarjeta reacciona de forma
@@ -76,13 +77,12 @@ function Historias() {
   }
 
   async function manejarEliminar(historiaId) {
-    if (!window.confirm(t('historias.confirmar_eliminar'))) return
-
     setErrorEliminar('')
     setEliminandoId(historiaId)
     try {
       await apiFetch(`/api/historias/${historiaId}`, { method: 'DELETE' })
       setHistorias((actuales) => actuales.filter((historia) => historia.id !== historiaId))
+      setHistoriaPendienteEliminar(null)
     } catch (err) {
       setErrorEliminar(err.message || t('historias.error_eliminar'))
     } finally {
@@ -153,16 +153,38 @@ function Historias() {
             {usuario && (
               <div className="am-story-card__actions">
                 {historia.es_mia ? (
-                  <button
-                    className="am-story-delete"
-                    type="button"
-                    onClick={() => manejarEliminar(historia.id)}
-                    disabled={eliminandoId === historia.id}
-                  >
-                    {eliminandoId === historia.id
-                      ? t('historias.eliminando')
-                      : t('historias.boton_eliminar')}
-                  </button>
+                  historiaPendienteEliminar === historia.id ? (
+                    <div className="am-delete-confirmation" role="alert">
+                      <p>{t('historias.confirmar_eliminar')}</p>
+                      <div>
+                        <button
+                          type="button"
+                          onClick={() => setHistoriaPendienteEliminar(null)}
+                          disabled={eliminandoId === historia.id}
+                        >
+                          {t('historias.boton_cancelar')}
+                        </button>
+                        <button
+                          className="am-story-delete am-story-delete--confirm"
+                          type="button"
+                          onClick={() => manejarEliminar(historia.id)}
+                          disabled={eliminandoId === historia.id}
+                        >
+                          {eliminandoId === historia.id
+                            ? t('historias.eliminando')
+                            : t('historias.boton_confirmar_eliminar')}
+                        </button>
+                      </div>
+                    </div>
+                  ) : (
+                    <button
+                      className="am-story-delete"
+                      type="button"
+                      onClick={() => setHistoriaPendienteEliminar(historia.id)}
+                    >
+                      {t('historias.boton_eliminar')}
+                    </button>
+                  )
                 ) : (
                   <button
                     type="button"

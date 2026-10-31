@@ -189,6 +189,8 @@
     "boton_eliminar": "Eliminar la meva història",
     "eliminando": "Eliminant...",
     "confirmar_eliminar": "Vols eliminar aquesta història? Aquesta acció no es pot desfer.",
+    "boton_cancelar": "Cancel·lar",
+    "boton_confirmar_eliminar": "Sí, eliminar",
     "error_eliminar": "No s'ha pogut eliminar la història. Torna-ho a provar."
   },
   "moderacion": {

@@ -2825,6 +2825,29 @@
 .am-story-card__actions button { padding: 8px 12px; background: transparent; color: var(--am-muted); font-size: 12px; }
 .am-story-card__actions .am-story-delete { color: #a8463d; }
 
+.am-delete-confirmation {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #f0c6bf;
+  border-radius: 14px;
+  background: #fff8f6;
+}
+.am-delete-confirmation p {
+  margin: 0 0 11px;
+  color: var(--am-ink);
+  font-size: 13px;
+  font-weight: 700;
+}
+.am-delete-confirmation > div {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.am-delete-confirmation .am-story-delete--confirm {
+  background: #a8463d;
+  color: white;
+}
+
 .am-status-card { padding: 24px; border-radius: 18px; color: var(--am-muted); }
 .am-status-card--error { display: flex; gap: 14px; border-color: #f2c8c1; background: #fff8f6; }
 .am-status-card--error > span { width: 34px; height: 34px; display: grid; flex: 0 0 auto; place-items: center; border-radius: 50%; background: var(--am-peach); color: #b14c41; font-weight: 900; }
