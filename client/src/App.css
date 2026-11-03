@@ -5268,8 +5268,9 @@
   }
 
   .am-logo > span:last-child {
-    display: none;
-  }
+  display: inline;
+  font-size: 0.9rem;
+}
 
   .am-site-header .language-switcher {
     gap: 2px;
