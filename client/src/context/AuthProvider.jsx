@@ -49,6 +49,11 @@ export function AuthProvider({ children }) {
     })
   }
 
+  function actualizarUsuario(usuarioActualizado) {
+    localStorage.setItem(CLAVE_USUARIO, JSON.stringify(usuarioActualizado))
+    setUsuario(usuarioActualizado)
+  }
+
   function logout() {
     localStorage.removeItem(CLAVE_TOKEN)
     localStorage.removeItem(CLAVE_USUARIO)
@@ -60,7 +65,7 @@ export function AuthProvider({ children }) {
     setSesionCaducada(false)
   }
 
-  const value = { usuario, login, registro, logout, sesionCaducada, limpiarAvisoSesion }
+  const value = { usuario, login, registro, logout, actualizarUsuario, sesionCaducada, limpiarAvisoSesion }
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }

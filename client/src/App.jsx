@@ -4,6 +4,9 @@ import './App.css'
 import Header from './components/Header.jsx'
 import Inicio from './pages/Inicio.jsx'
 import Apoyo from './pages/Apoyo.jsx'
+import Talleres from './pages/Talleres.jsx'
+import GestionTalleres from './pages/GestionTalleres.jsx'
+import MiCuenta from './pages/MiCuenta.jsx'
 import Nosotros from './pages/Nosotros.jsx'
 import Seguridad from './pages/Seguridad.jsx'
 import Recursos from './pages/Recursos.jsx'
@@ -34,6 +37,9 @@ function App() {
       <Routes key={i18n.resolvedLanguage}>
         <Route path="/" element={<Inicio />} />
         <Route path="/apoyo" element={<Apoyo />} />
+        <Route path="/talleres" element={<Talleres />} />
+        <Route path="/gestion/talleres" element={<GestionTalleres />} />
+        <Route path="/mi-cuenta" element={<MiCuenta />} />
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/seguridad" element={<Seguridad />} />
         <Route path="/recursos" element={<Recursos />} />

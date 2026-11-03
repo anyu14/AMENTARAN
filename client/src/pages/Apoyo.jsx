@@ -62,29 +62,6 @@ function Apoyo() {
         </div>
       </section>
 
-      <section
-        className="apoyo-talleres"
-        aria-labelledby="apoyo-talleres-titulo"
-      >
-        <div className="apoyo-contenedor apoyo-talleres__contenido">
-          <div className="apoyo-talleres__texto">
-            <p className="apoyo-etiqueta">{t("apoyo.talleres.etiqueta")}</p>
-            <h2 id="apoyo-talleres-titulo">
-              {t("apoyo.talleres.titulo")}
-            </h2>
-            <p>{t("apoyo.talleres.descripcion")}</p>
-          </div>
-
-          <div className="apoyo-talleres__aviso">
-            <span aria-hidden="true">🌿</span>
-            <div>
-              <h3>{t("apoyo.talleres.proximamente_titulo")}</h3>
-              <p>{t("apoyo.talleres.proximamente_texto")}</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className="apoyo-comunidad">
         <div className="apoyo-contenedor">
           <p>{t("apoyo.comunidad_frase")}</p>
