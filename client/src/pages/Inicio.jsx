@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import heroAmentaran from '../assets/hero-amentaran.png'
+import heroAmentaran from '../assets/hero-amentaran.jpg'
 
 function Icon({ name, size = 20 }) {
   const icons = {

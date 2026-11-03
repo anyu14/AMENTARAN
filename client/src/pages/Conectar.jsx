@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { apiFetch } from '../api/client.js'
 import { useAuth } from '../context/useAuth.js'
 import Chat from '../components/Chat.jsx'
-import chatConversation from '../assets/chat-conversation.png'
+import chatConversation from '../assets/chat-conversation.jpg'
 
 function Conectar() {
   const { t } = useTranslation()

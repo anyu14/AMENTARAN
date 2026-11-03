@@ -122,7 +122,8 @@ function Chat({ sesionId, onSesionFinalizada }) {
       if (cancelado) return
 
       const esMio = mensaje.autor_id === usuario.id
-      const { autor_id, ...mensajePublico } = mensaje
+      const mensajePublico = { ...mensaje }
+      delete mensajePublico.autor_id
 
       agregarMensajes([{ ...mensajePublico, es_mio: esMio }])
 

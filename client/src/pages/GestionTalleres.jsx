@@ -43,9 +43,33 @@ function GestionTalleres() {
   }
 
   useEffect(() => {
-    if (usuario?.gestiona_talleres) cargarTalleres()
-    else setCargando(false)
-  }, [usuario])
+    if (!usuario?.gestiona_talleres) return undefined
+
+    let cancelado = false
+
+    async function cargarTalleresIniciales() {
+      try {
+        const datos = await apiFetch('/api/talleres/gestion')
+
+        if (!cancelado) {
+          setTalleres(datos)
+          setError('')
+        }
+      } catch (err) {
+        if (!cancelado) {
+          setError(err.message || t('gestion_talleres.error_cargar'))
+        }
+      } finally {
+        if (!cancelado) setCargando(false)
+      }
+    }
+
+    cargarTalleresIniciales()
+
+    return () => {
+      cancelado = true
+    }
+  }, [usuario?.gestiona_talleres, t])
 
   if (!usuario?.gestiona_talleres) {
     return (
