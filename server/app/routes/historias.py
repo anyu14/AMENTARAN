@@ -43,10 +43,11 @@ def crear_historia():
     db.session.add(nueva_historia)
     db.session.commit()
 
-    return jsonify(nueva_historia.to_public_dict()), 201
+    return jsonify({**nueva_historia.to_public_dict(), "es_mia": True}), 201
 
 
 @historias_bp.route("", methods=["GET"])
+@jwt_required(optional=True)
 def listar_historias():
     # Las historias ocultas por un moderador no se filtran a nivel de
     # base de datos (se conservan para poder revisarlas), pero nunca
@@ -57,7 +58,32 @@ def listar_historias():
         .limit(LIMITE_LISTADO)
         .all()
     )
-    return jsonify([h.to_public_dict() for h in historias]), 200
+    identidad = get_jwt_identity()
+    usuario_id = int(identidad) if identidad is not None else None
+
+    return jsonify([
+        {**h.to_public_dict(), "es_mia": h.usuario_id == usuario_id}
+        for h in historias
+    ]), 200
+
+
+@historias_bp.route("/<int:historia_id>", methods=["DELETE"])
+@jwt_required()
+def eliminar_historia(historia_id):
+    usuario_id = int(get_jwt_identity())
+    historia = Historia.query.get(historia_id)
+
+    if historia is None:
+        return jsonify(error="Historia no encontrada."), 404
+
+    if historia.usuario_id != usuario_id:
+        return jsonify(error="No tienes permiso para eliminar esta historia."), 403
+
+    ReporteHistoria.query.filter_by(historia_id=historia_id).delete()
+    db.session.delete(historia)
+    db.session.commit()
+
+    return "", 204
 
 
 @historias_bp.route("/<int:historia_id>/reportar", methods=["POST"])

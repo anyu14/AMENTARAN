@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: amentaran-api
+    runtime: python
+    rootDir: server
+    buildCommand: pip install -r requirements.txt
+    startCommand: flask --app run.py db upgrade && gunicorn --bind 0.0.0.0:$PORT --workers 1 --threads 100 run:app
+    healthCheckPath: /
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET_KEY
+        generateValue: true
+      - key: JWT_ACCESS_TOKEN_HOURS
+        value: "8"
+      - key: FRONTEND_URL
+        sync: false
+      - key: PYTHON_VERSION
+        value: "3.11.11"
+
+  - type: web
+    name: amentaran
+    runtime: static
+    rootDir: client
+    buildCommand: npm ci && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_URL
+        sync: false
+      - key: NODE_VERSION
+        value: "22.16.0"
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

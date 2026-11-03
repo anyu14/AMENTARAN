@@ -12,6 +12,8 @@ class Usuario(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
+    nombre = db.Column(db.String(100), nullable=True)
+    alias = db.Column(db.String(40), unique=True, nullable=True)
     password_hash = db.Column(db.String(255), nullable=False)
 
     # "busca_apoyo" o "voluntario". Se valida en el código de la API,
@@ -29,6 +31,9 @@ class Usuario(db.Model):
     # historias reportadas y ocultarlas. Por ahora se activa a mano
     # directamente en la base de datos, no hay una UI para asignarlo.
     es_moderador = db.Column(db.Boolean, nullable=False, default=False)
+
+    # Permiso independiente para crear, editar y administrar talleres.
+    gestiona_talleres = db.Column(db.Boolean, nullable=False, default=False)
 
     def __repr__(self):
         return f"<Usuario {self.email}>"

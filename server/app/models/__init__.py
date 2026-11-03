@@ -4,4 +4,6 @@ from app.models.sesion import Sesion
 from app.models.mensaje import Mensaje
 from app.models.reporte_historia import ReporteHistoria
 
-__all__ = ["Usuario", "Historia", "Sesion", "Mensaje", "ReporteHistoria"]
+__all__ = ["Usuario", "Historia", "Sesion", "Mensaje", "ReporteHistoria", "Taller"]
+
+from app.models.taller import Taller

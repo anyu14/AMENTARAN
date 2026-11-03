@@ -4,18 +4,23 @@ function LanguageSwitcher() {
   const { i18n } = useTranslation()
 
   return (
-    <div className="language-switcher">
+    <div className="language-switcher" translate="no" aria-label="Idioma">
       <button
+        type="button"
+        translate="no"
         onClick={() => i18n.changeLanguage('es')}
         disabled={i18n.resolvedLanguage === 'es'}
       >
         ES
       </button>
+      <span aria-hidden="true">/</span>
       <button
+        type="button"
+        translate="no"
         onClick={() => i18n.changeLanguage('ca')}
         disabled={i18n.resolvedLanguage === 'ca'}
       >
-        CA
+        Català
       </button>
     </div>
   )

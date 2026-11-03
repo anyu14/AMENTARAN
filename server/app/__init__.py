@@ -16,13 +16,16 @@ def create_app():
     app.config.from_object(Config)
 
     # Permite que el frontend (en otro puerto/origen) pueda llamar a esta API.
-    CORS(app)
+    CORS(app, origins=app.config["FRONTEND_URLS"])
 
     # Conecta la base de datos y el sistema de migraciones a esta app.
     db.init_app(app)
     migrate.init_app(app, db)
     jwt.init_app(app)
-    socketio.init_app(app)
+    socketio.init_app(
+        app,
+        cors_allowed_origins=app.config["FRONTEND_URLS"],
+    )
 
     # Importa los modelos para que SQLAlchemy/Alembic los conozca
     # (si no se importan en algún punto, Alembic no los detecta).
@@ -40,11 +43,13 @@ def create_app():
     from app.routes.matching import matching_bp
     from app.routes.mensajes import mensajes_bp
     from app.routes.moderacion import moderacion_bp
+    from app.routes.talleres import talleres_bp
     app.register_blueprint(main_bp)
     app.register_blueprint(auth_bp)
     app.register_blueprint(historias_bp)
     app.register_blueprint(matching_bp)
     app.register_blueprint(mensajes_bp)
     app.register_blueprint(moderacion_bp)
+    app.register_blueprint(talleres_bp)
 
     return app
