@@ -248,7 +248,9 @@
     "boton_enviar": "Enviar",
     "enviando": "Enviant...",
     "conectando": "Connectant...",
-    "error_enviar": "No s'ha pogut enviar el missatge. Torna-ho a provar."
+    "error_enviar": "No s'ha pogut enviar el missatge. Torna-ho a provar.",
+    "sonido_activar": "Activar el so dels missatges",
+    "sonido_desactivar": "Silenciar el so dels missatges"
   },
   "seguridad": {
     "etiqueta": "El teu benestar importa",

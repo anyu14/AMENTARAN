@@ -226,7 +226,9 @@
     "boton_enviar": "Enviar",
     "enviando": "Enviando...",
     "conectando": "Conectando...",
-    "error_enviar": "No se pudo enviar el mensaje. Intenta de nuevo."
+    "error_enviar": "No se pudo enviar el mensaje. Intenta de nuevo.",
+    "sonido_activar": "Activar sonido de mensajes",
+    "sonido_desactivar": "Silenciar sonido de mensajes"
   },
   "nosotros": {
     "etiqueta": "Conoce Amentaran",

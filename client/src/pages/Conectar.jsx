@@ -138,17 +138,25 @@ function Conectar() {
 
       {sesion ? (
         <div className="am-chat-session">
-          <h3>{t('conectar.sesion_activa_titulo')}</h3>
-          <p>
-            {t('conectar.sesion_activa_desde')}{' '}
-            {new Date(sesion.fecha_inicio).toLocaleString()}
-          </p>
+          <header className="am-chat-session__header">
+            <div className="am-chat-session__avatar" aria-hidden="true">A</div>
+            <div>
+              <h3>{t('conectar.sesion_activa_titulo')}</h3>
+              <p>
+                <span className="am-chat-online-dot" aria-hidden="true" />
+                {t('conectar.sesion_activa_desde')}{' '}
+                {new Date(sesion.fecha_inicio).toLocaleString()}
+              </p>
+            </div>
+          </header>
 
           <Chat sesionId={sesion.id} onSesionFinalizada={manejarFinalizacionRemota} />
 
-          <button className="am-danger-button" onClick={manejarFinalizar} disabled={procesando}>
-            {procesando ? t('conectar.finalizando') : t('conectar.boton_finalizar')}
-          </button>
+          <footer className="am-chat-session__footer">
+            <button className="am-danger-button" onClick={manejarFinalizar} disabled={procesando}>
+              {procesando ? t('conectar.finalizando') : t('conectar.boton_finalizar')}
+            </button>
+          </footer>
         </div>
       ) : usuario.rol === 'voluntario' ? (
         <div className="am-connect-role-card">
